@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "PokeBloobs": {
+      "commandName": "Project"
+    },
+    "PokeBloobsTest": {
+      "commandName": "Executable",
+      "executablePath": "F:\\SteamLibrary\\steamapps\\common\\Bloobs Adventure Idle\\Bloobs Adventure Idle.exe",
+      "workingDirectory": "F:\\SteamLibrary\\steamapps\\common\\Bloobs Adventure Idle"
+    }
+  }
+}

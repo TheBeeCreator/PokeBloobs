@@ -1,0 +1,6 @@
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\PokeBloobs.csproj.AssemblyReference.cache
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\MyPluginInfo.cs
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\PokeBloobs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\PokeBloobs.AssemblyInfoInputs.cache
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\PokeBloobs.AssemblyInfo.cs
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net35\PokeBloobs.csproj.CoreCompileInputs.cache
