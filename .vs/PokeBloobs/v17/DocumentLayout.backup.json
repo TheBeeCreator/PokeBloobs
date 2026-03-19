@@ -30,9 +30,9 @@
               "Title": "PokeBloobs.cs",
               "DocumentMoniker": "C:\\Users\\BFoxx\\source\\repos\\PokeBloobs\\PokeBloobs\\PokeBloobs.cs",
               "RelativeDocumentMoniker": "PokeBloobs\\PokeBloobs.cs",
-              "ToolTip": "C:\\Users\\BFoxx\\source\\repos\\PokeBloobs\\PokeBloobs\\PokeBloobs.cs",
-              "RelativeToolTip": "PokeBloobs\\PokeBloobs.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowFkAAAAgAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\BFoxx\\source\\repos\\PokeBloobs\\PokeBloobs\\PokeBloobs.cs*",
+              "RelativeToolTip": "PokeBloobs\\PokeBloobs.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T14:15:55.26Z",
               "IsPinned": true,
@@ -48,8 +48,7 @@
               "RelativeToolTip": "PokeBloobs\\.gitattributes",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-03-19T22:22:21.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-19T22:22:21.831Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "ToolTip": "C:\\Users\\BFoxx\\source\\repos\\PokeBloobs\\PokeBloobs\\PokeBloobs.csproj",
               "RelativeToolTip": "PokeBloobs\\PokeBloobs.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-03-17T14:19:31.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T14:19:31.035Z"
             }
           ]
         }

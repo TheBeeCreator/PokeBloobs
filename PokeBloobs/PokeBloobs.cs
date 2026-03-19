@@ -15,13 +15,6 @@ namespace PokeBloobs
 
         private void Awake()
         {
-            Logger.LogInfo("Test");
-            //Add customs
-            Bulbasuar = ScriptableObject.CreateInstance<Item>();
-            Bulbasuar.itemName = "Bulbasuar Soul";
-            Bulbasuar.commonImage = null;
-            Bulbasuar.dropChance = 1;
-
             // Plugin startup logic
             Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is installed");
 
@@ -95,7 +88,7 @@ namespace PokeBloobs
             // Example bonus
             bulbasuar.miningBonusXp = 0.10f;
 
-//            Prevent duplicate
+            //Prevent duplicate
             if (__instance.HasPet(bulbasuar.itemName))
                 return;
 
@@ -103,7 +96,6 @@ namespace PokeBloobs
             __instance.collectedPets.Add(bulbasuar);
 
             Debug.Log("[Mod] Added custom pet: " + bulbasuar.itemName);
-            //Logger("[Mod] Added custom pet: " + customPet.itemName);
 
             // Summon it if possible
             __instance.SummonPet(bulbasuar);
@@ -137,7 +129,6 @@ namespace PokeBloobs
 
             if (petNames == null || petNameLookup == null || categorizedBlocks == null)
             {
-                Debug.LogError("[MyMod] Could not find SoulCompendiumManager internal lists via Traverse!");
                 return;
             }
 
