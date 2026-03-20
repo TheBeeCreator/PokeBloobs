@@ -36,17 +36,112 @@ namespace PokeBloobs
         public static Item soulinfo;
 
         //Cause ya know
-        private Dictionary<string, string[]> evolutionChains = new Dictionary<string, string[]>
+        public Dictionary<string, string[]> evolutionChains = new Dictionary<string, string[]>
         {
             { "Bulbasaur", new[] { "Bulbasaur", "Ivysaur", "Venusaur" } },
             { "Charmander", new[] { "Charmander", "Charmeleon", "Charizard" } },
             { "Squirtle", new[] { "Squirtle", "Wartortle", "Blastoise" } },
 
+            { "Caterpie", new[] { "Caterpie", "Metapod", "Butterfree" } },
+            { "Weedle", new[] { "Weedle", "Kakuna", "Beedrill" } },
+            { "Pidgey", new[] { "Pidgey", "Pidgeotto", "Pidgeot" } },
+
+            { "Rattata", new[] { "Rattata", "Raticate" } },
+            { "Spearow", new[] { "Spearow", "Fearow" } },
+            { "Ekans", new[] { "Ekans", "Arbok" } },
             { "Pikachu", new[] { "Pikachu", "Raichu" } },
+            { "Sandshrew", new[] { "Sandshrew", "Sandslash" } },
+
+            { "NidoranF", new[] { "NidoranF", "Nidorina", "Nidoqueen" } },
+            { "NidoranM", new[] { "NidoranM", "Nidorino", "Nidoking" } },
+
+            { "Clefairy", new[] { "Clefairy", "Clefable" } },
+            { "Vulpix", new[] { "Vulpix", "Ninetales" } },
+            { "Jigglypuff", new[] { "Jigglypuff", "Wigglytuff" } },
+            { "Zubat", new[] { "Zubat", "Golbat" } },
+
+            { "Oddish", new[] { "Oddish", "Gloom", "Vileplume" } },
+            { "Paras", new[] { "Paras", "Parasect" } },
+            { "Venonat", new[] { "Venonat", "Venomoth" } },
+            { "Diglett", new[] { "Diglett", "Dugtrio" } },
+            { "Meowth", new[] { "Meowth", "Persian" } },
+            { "Psyduck", new[] { "Psyduck", "Golduck" } },
+            { "Mankey", new[] { "Mankey", "Primeape" } },
+            { "Growlithe", new[] { "Growlithe", "Arcanine" } },
+
+            { "Poliwag", new[] { "Poliwag", "Poliwhirl", "Poliwrath" } },
+            { "Abra", new[] { "Abra", "Kadabra", "Alakazam" } },
+            { "Machop", new[] { "Machop", "Machoke", "Machamp" } },
+            { "Bellsprout", new[] { "Bellsprout", "Weepinbell", "Victreebel" } },
+
+            { "Tentacool", new[] { "Tentacool", "Tentacruel" } },
+            { "Geodude", new[] { "Geodude", "Graveler", "Golem" } },
+            { "Ponyta", new[] { "Ponyta", "Rapidash" } },
+            { "Slowpoke", new[] { "Slowpoke", "Slowbro" } },
+            { "Magnemite", new[] { "Magnemite", "Magneton" } },
+
+            { "Farfetchd", new[] { "Farfetchd" } },
+
+            { "Doduo", new[] { "Doduo", "Dodrio" } },
+            { "Seel", new[] { "Seel", "Dewgong" } },
+            { "Grimer", new[] { "Grimer", "Muk" } },
+            { "Shellder", new[] { "Shellder", "Cloyster" } },
+
+            { "Gastly", new[] { "Gastly", "Haunter", "Gengar" } },
+
+            { "Onix", new[] { "Onix" } },
+
+            { "Drowzee", new[] { "Drowzee", "Hypno" } },
+            { "Krabby", new[] { "Krabby", "Kingler" } },
+            { "Voltorb", new[] { "Voltorb", "Electrode" } },
+            { "Exeggcute", new[] { "Exeggcute", "Exeggutor" } },
+            { "Cubone", new[] { "Cubone", "Marowak" } },
+
+            { "Hitmonlee", new[] { "Hitmonlee" } },
+            { "Hitmonchan", new[] { "Hitmonchan" } },
+            { "Lickitung", new[] { "Lickitung" } },
+
+            { "Koffing", new[] { "Koffing", "Weezing" } },
+            { "Rhyhorn", new[] { "Rhyhorn", "Rhydon" } },
+
+            { "Chansey", new[] { "Chansey" } },
+            { "Tangela", new[] { "Tangela" } },
+            { "Kangaskhan", new[] { "Kangaskhan" } },
+
+            { "Horsea", new[] { "Horsea", "Seadra" } },
+            { "Goldeen", new[] { "Goldeen", "Seaking" } },
+            { "Staryu", new[] { "Staryu", "Starmie" } },
+
+            { "MrMime", new[] { "MrMime" } },
+            { "Scyther", new[] { "Scyther" } },
+            { "Jynx", new[] { "Jynx" } },
+            { "Electabuzz", new[] { "Electabuzz" } },
+            { "Magmar", new[] { "Magmar" } },
+            { "Pinsir", new[] { "Pinsir" } },
+            { "Tauros", new[] { "Tauros" } },
 
             { "Magikarp", new[] { "Magikarp", "Gyarados" } },
+            { "Lapras", new[] { "Lapras" } },
+            { "Ditto", new[] { "Ditto" } },
 
-            // etc...
+            { "Eevee", new[] { "Eevee", "Vaporeon", "Jolteon", "Flareon" } },
+
+            { "Porygon", new[] { "Porygon" } },
+
+            { "Omanyte", new[] { "Omanyte", "Omastar" } },
+            { "Kabuto", new[] { "Kabuto", "Kabutops" } },
+
+            { "Aerodactyl", new[] { "Aerodactyl" } },
+            { "Snorlax", new[] { "Snorlax" } },
+
+            { "Articuno", new[] { "Articuno" } },
+            { "Zapdos", new[] { "Zapdos" } },
+            { "Moltres", new[] { "Moltres" } },
+
+            { "Dratini", new[] { "Dratini", "Dragonair", "Dragonite" } },
+
+            { "Mewtwo", new[] { "Mewtwo" } },
+            { "Mew", new[] { "Mew" } }
         };
 
         public static Dictionary<int, bool> patchSkillrun = new Dictionary<int, bool>
@@ -82,7 +177,32 @@ namespace PokeBloobs
         //Sprite cache
         private static Dictionary<string, Sprite> _spriteCache = new Dictionary<string, Sprite>();
         //Caches
+        public static List<Item> _cachedHitpointsSouls;
+        public static List<Item> _cachedAttackSouls;
+        public static List<Item> _cachedStrengthSouls;
+        public static List<Item> _cachedDefenseSouls;
+        public static List<Item> _cachedRangedSouls;
+        public static List<Item> _cachedMagicSouls;
+        public static List<Item> _cachedDevotionSouls;
+        public static List<Item> _cachedBeastmasterSouls;
+
+        public static List<Item> _cachedDexteritySouls;
+        public static List<Item> _cachedForagingSouls;
+        public static List<Item> _cachedHerbloreSouls;
+        public static List<Item> _cachedCraftingSouls;
+        public static List<Item> _cachedBowCraftingSouls;
+        public static List<Item> _crachedImbuingSouls;
+        public static List<Item> _cachedThievingSouls;
+        public static List<Item> _cachedSoulBindingSouls;
+
+        public static List<Item> _cachedMiningSouls;
+        public static List<Item> _cachedSmithingSouls;
+        public static List<Item> _cachedFishingsouls;
+        public static List<Item> _cachedCookingSouls;
         public static List<Item> _cachedWoodcuttingSouls;
+        public static List<Item> _cachedFiremakingSouls;
+        public static List<Item> _cachedTrackingSouls;
+        public static List<Item> _cachedHomesteadingSouls;
 
         public static Item mon = ScriptableObject.CreateInstance<Item>();
 
@@ -143,7 +263,23 @@ namespace PokeBloobs
             Harmony.CreateAndPatchAll(typeof(Patch_DevotionSkill));
             Harmony.CreateAndPatchAll(typeof(Patch_BeastMasterySkill));
 
-            Harmony.CreateAndPatchAll(typeof(Patch_Woodcuttingskill));
+            Harmony.CreateAndPatchAll(typeof(Patch_DexteritySkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_ForagingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_HerbloreSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_CraftingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_BowcraftingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_ImbuingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_ThievingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_SoulbindingSkill));
+
+            Harmony.CreateAndPatchAll(typeof(Patch_MiningSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_SmithingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_FishingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_CookingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_WoodcuttingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_FiremakingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_TrackingSkill));
+            Harmony.CreateAndPatchAll(typeof(Patch_HomesteadingSkill));
 
             var patchedMethods = Harmony.GetAllPatchedMethods();
             //Make sure that harmory actually patched
@@ -216,6 +352,36 @@ namespace PokeBloobs
 
             xpNew = xpDefaultxp * multiplier;
 
+            float multiplierSB = PlayerDataManager.Instance.GetSoulBindingPrestigeLevel();
+            switch (multiplierSB)
+            { 
+                case 0:
+                    break;
+                case 1:
+                    xpNew = xpNew * 1.3f; break;
+                case 2:
+                    xpNew = xpNew * 1.5f; break;
+                case 3:
+                    xpNew = xpNew * 1.7f; break;
+                case 4:
+                    xpNew = xpNew * 1.9f; break;
+                case 5:
+                    xpNew = xpNew * 2.0f; break;
+                case 6:
+                    xpNew = xpNew * 3.0f; break;
+                case 7:
+                    xpNew = xpNew * 4.0f; break;
+                case 8:
+                    xpNew = xpNew * 5.0f; break;
+                case 9:
+                    xpNew = xpNew * 6.0f; break;
+                case 10:
+                    xpNew = xpNew * 7.0f; break;
+            }
+
+            //Enforce a cap on possible bonus
+            xpNew = Math.Min(xpNew, 35);
+
             switch (s.skillName)
             {
                 case "Hitpoints":
@@ -243,7 +409,7 @@ namespace PokeBloobs
                     item.herbologyBonusXp = xpNew; break;
                 case "Crafting":
                     item.craftingBonusXp = xpNew; break;
-                case "Fletching":
+                case "Bowcrafting":
                     item.bowCraftingBonusXp = xpNew; break;
                 case "Imbuing":
                     item.imbuingBonusXp = xpNew; break;
@@ -475,18 +641,37 @@ namespace PokeBloobs
         {
             return rarity switch
             {
-                0 => 0.01f,         //1% Chance
-                1 => 0.005f,        //0.5% Chance
-                2 => 0.0001f,       //0.01%
-                3 => 0.00001f,      //0.001%
-                4 => 0.000001f,     //0.00001%
+                0 => 0.001f,        //0.1% Chance
+                1 => 0.0005f,       //0.05% Chance
+                2 => 0.00001f,      //0.001%
+                3 => 0.000001f,     //0.0001%
+                4 => 0.0000001f,    //0.000001%
                 5 => 0.00000001f,   //0.0000001%
                 _ => 0.01f
             };
         }
 
         //Evo helper
+        public List<string> GetRequiredPreEvolutions(string petName)
+        {
+            List<string> requirements = new List<string>();
 
+            foreach (var entry in evolutionChains)
+            {
+                string[] chain = entry.Value;
+                int targetIndex = Array.IndexOf(chain, petName);
+
+                if (targetIndex > 0)
+                {
+                    for (int i = 0; i < targetIndex; i++)
+                    {
+                        requirements.Add(chain[i]);
+                    }
+                    return requirements;
+                }
+            }
+            return requirements;
+        }
     }
 
     [HarmonyPatch(typeof(HitPointsSkill), "DropPets")]
@@ -499,9 +684,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedHitpointsSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedHitpointsSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Hitpoints"));
 
@@ -509,13 +694,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedHitpointsSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedHitpointsSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -579,9 +764,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedStrengthSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedStrengthSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Strength"));
 
@@ -589,13 +774,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedStrengthSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedStrengthSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -619,7 +804,7 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedDefenseSouls == null)
             {
                 _cachedWoodcuttingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
@@ -629,13 +814,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedDefenseSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedDefenseSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -659,9 +844,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedRangedSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedRangedSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Ranged"));
 
@@ -669,13 +854,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedRangedSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedRangedSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -699,7 +884,7 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedMagicSouls == null)
             {
                 _cachedWoodcuttingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
@@ -709,13 +894,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedMagicSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedMagicSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -739,9 +924,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedDevotionSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedDevotionSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Devotion"));
 
@@ -749,13 +934,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedDevotionSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedDevotionSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -779,23 +964,23 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedBeastmasterSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedBeastmasterSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
-                    .Where(n => n.skillName.Contains("BeastMastery"));
+                    .Where(n => n.skillName.Contains("Beastmastery"));
 
                 foreach (var soul in wcSouls)
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    _cachedBeastmasterSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedBeastmasterSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -809,8 +994,488 @@ namespace PokeBloobs
         }
     }
 
+    [HarmonyPatch(typeof(DexteritySkill), "DropPets")]
+    public class Patch_DexteritySkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(9) && PokeBloobs.patchSkillrun[9])
+            {
+                return;
+            }
+
+            if (_cachedDexteritySouls == null)
+            {
+                _cachedDexteritySouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Dexterity"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedDexteritySouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Dexterity soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Dexterity soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[9] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(ForagingSkill), "DropPets")]
+    public class Patch_ForagingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(10) && PokeBloobs.patchSkillrun[10])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Foraging"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Foraging soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Foraging soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[10] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(HerbologySkill), "DropPets")]
+    public class Patch_HerbloreSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(11) && PokeBloobs.patchSkillrun[11])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Herblore"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Herblore soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Herblore soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[11] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(CraftingSkill), "DropPets")]
+    public class Patch_CraftingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(12) && PokeBloobs.patchSkillrun[12])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Crafting"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Crafting soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Crafting soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[12] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(BowCraftingSkill), "DropPets")]
+    public class Patch_BowcraftingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(13) && PokeBloobs.patchSkillrun[13])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Bowcrafting"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Bowcrafting soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Bowcrafting soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[13] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(ImbuingSkill), "DropPets")]
+    public class Patch_ImbuingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(14) && PokeBloobs.patchSkillrun[14])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Imbuing"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Imbuing soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Imbuing soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[14] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(ThievingSkill), "DropPets")]
+    public class Patch_ThievingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(15) && PokeBloobs.patchSkillrun[15])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Thieving"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Thieving soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Thieving soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[15] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SoulBinding), "DropPets")]
+    public class Patch_SoulbindingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(16) && PokeBloobs.patchSkillrun[16])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Soulbinding"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Soulbinding soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Soulbinding soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[16] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(MiningSkill), "DropPets")]
+    public class Patch_MiningSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(17) && PokeBloobs.patchSkillrun[17])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Mining"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Mining soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Mining soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[17] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SmithingSkill), "DropPets")]
+    public class Patch_SmithingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(18) && PokeBloobs.patchSkillrun[18])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Smithing"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Smithing soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Smithing soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[18] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(FishingSkill), "DropPets")]
+    public class Patch_FishingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(19) && PokeBloobs.patchSkillrun[19])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Fishing"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Fishing soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Fishing soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[19] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(CookingSkill), "DropPets")]
+    public class Patch_CookingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(20) && PokeBloobs.patchSkillrun[20])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Cooking"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Cooking soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Cooking soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[20] = true;
+        }
+    }
+
     [HarmonyPatch(typeof(WoodcuttingSkill), "DropPets")]
-    public class Patch_Woodcuttingskill
+    public class Patch_WoodcuttingSkill
     {
         static void Postfix(ref List<Item> ___petDrops)
         {
@@ -819,23 +1484,23 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedWoodcuttingSouls == null)
+            if (_cachedBeastmasterSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedBeastmasterSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Woodcutting"));
 
                 foreach (var soul in wcSouls)
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
-                    c.dropChance =  PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedWoodcuttingSouls.Add(c);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedWoodcuttingSouls)
+            foreach (var soulItem in _cachedBeastmasterSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -848,6 +1513,127 @@ namespace PokeBloobs
             PokeBloobs.patchSkillrun[21] = true;
         }
     }
+
+    [HarmonyPatch(typeof(FiremakingSkill), "DropPets")]
+    public class Patch_FiremakingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(22) && PokeBloobs.patchSkillrun[22])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Firemaking"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Firemaking soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Firemaking soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[22] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(TrackingSkill), "DropPets")]
+    public class Patch_TrackingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(23) && PokeBloobs.patchSkillrun[23])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Tracking"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Tracking soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Tracking soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[23] = true;
+        }
+    }
+
+    [HarmonyPatch(typeof(HomeSteadingSkill), "DropPets")]
+    public class Patch_HomesteadingSkill
+    {
+        static void Postfix(ref List<Item> ___petDrops)
+        {
+            if (PokeBloobs.patchSkillrun.ContainsKey(24) && PokeBloobs.patchSkillrun[24])
+            {
+                return;
+            }
+
+            if (_cachedBeastmasterSouls == null)
+            {
+                _cachedBeastmasterSouls = new List<Item>();
+                var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+                    .Where(n => n.skillName.Contains("Homesteading"));
+
+                foreach (var soul in wcSouls)
+                {
+                    Item c = PokeBloobs.BuildSoul(soul);
+                    c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+                    _cachedBeastmasterSouls.Add(c);
+                }
+            }
+
+            var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+            foreach (var soulItem in _cachedBeastmasterSouls)
+            {
+                if (!existingNames.Contains(soulItem.name))
+                {
+                    Debug.Log($"Homesteading soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+                    ___petDrops.Add(soulItem);
+                }
+            }
+
+            Debug.Log($"Homesteading soul drop patches have been applied");
+            PokeBloobs.patchSkillrun[24] = true;
+        }
+    }
+
 
     //General Patches
     [HarmonyPatch(typeof(Item), "GetAllItems")]
@@ -1024,5 +1810,29 @@ namespace PokeBloobs
                 }
             }
         }    
+    }
+
+    [HarmonyPatch(typeof(PetManager), "AddPet")]
+    public static class Patch_PetManagerAddPet
+    {
+        static bool Prefix(PetManager __instance, string petName)
+        {
+            PokeBloobs plugin = GameObject.FindObjectOfType<PokeBloobs>();
+            if (plugin == null) return true;
+
+            // Get the list of all pets required before this one
+            List<string> requirements = plugin.GetRequiredPreEvolutions(petName);
+
+            foreach (string requiredPet in requirements)
+            {
+                if (!__instance.HasPet(requiredPet))
+                {
+                    Debug.Log($"[PokeBloobs] Cannot unlock {petName}: Missing {requiredPet} in your collection.");
+                    return false; // Blocks the AddPet call
+                }
+            }
+
+            return true;
+        }
     }
 }
