@@ -1,0 +1,17 @@
+[
+  {
+    "soulName": "Bulbasuar",
+    "soulCategory": "event souls",
+    "skillName": "Woodcutting"
+  },
+  {
+    "soulName": "Charmander",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking"
+  },
+  {
+    "soulName": "Squirtle",
+    "soulCategory": "event souls",
+    "skillName": "Fishing"
+  }
+]
