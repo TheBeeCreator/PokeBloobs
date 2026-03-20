@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PokeBloobs")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63c38e51a36cf5d65a6c41542025fa2dcb1de4e2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a609863ffc1fdd778b9b0c8d9509a93b711aa91d")]
 [assembly: System.Reflection.AssemblyProductAttribute("My first plugin")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PokeBloobs")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

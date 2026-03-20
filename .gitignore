@@ -1,2 +1,6 @@
 *.vsidx
 /.vs/PokeBloobs/FileContentIndex
+/Libraries
+/PokeBloobs/bin
+/PokeBloobs/obj
+/PokeBloobs/Properties
