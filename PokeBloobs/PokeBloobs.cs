@@ -382,66 +382,66 @@ namespace PokeBloobs
             //Enforce a cap on possible bonus
             xpNew = Math.Min(xpNew, 35);
 
-            //switch (s.skillName)
-            //{
-            //    case "Hitpoints":
-            //        item.hitPointsBonusXp = xpNew; break;
-            //    case "Attack":
-            //        item.attackBonusXP = xpNew; break;
-            //    case "Strength":
-            //        item.strengthBonusXp = xpNew;
-            //        item.critalChance = multiplier / 2; break;
-            //    case "Defense":
-            //        item.defenceBonusXP = xpNew; break;
-            //    case "Ranged":
-            //        item.rangeBonusXP = xpNew; break;
-            //    case "Magic":
-            //        item.magicBonusXP = xpNew; break;
-            //    case "Devotion":
-            //        item.devotionBonusXp = xpNew; break;
-            //    case "Beastmastery":
-            //        item.beastMateryBonusXp = xpNew; break;
-            //    case "Dexterity":
-            //        item.dexterityBonusXp = xpNew; break;
-            //    case "Foraging":
-            //        item.foragingBonusXp = xpNew; break;
-            //    case "Herblore":
-            //        item.herbologyBonusXp = xpNew; break;
-            //    case "Crafting":
-            //        item.craftingBonusXp = xpNew; break;
-            //    case "Bowcrafting":
-            //        item.bowCraftingBonusXp = xpNew; break;
-            //    case "Imbuing":
-            //        item.imbuingBonusXp = xpNew; break;
-            //    case "Thieving":
-            //        item.thievingBonusXp = xpNew; break;
-            //    case "Soulbinding":
-            //        item.soulBindingBonusXp = xpNew; break;
-            //    case "Mining":
-            //        item.miningBonusXp = xpNew; break;
-            //    case "Smithing":
-            //        item.smithingBonusXp = xpNew; break;
-            //    case "Fishing":
-            //        item.fishingBonusXp = xpNew; break;
-            //    case "Cooking":
-            //        item.cookingBonusXp = xpNew; break;
-            //    case "Woodcutting":
-            //        item.woodcuttingBonusXp = xpNew;
-            //        item.firemakingBonusXp = xpNew / 2; break;
-            //    case "Firemaking":
-            //        item.firemakingBonusXp = xpNew;
-            //        item.woodcuttingBonusXp = xpNew / 2; break;
-            //    case "Tracking":
-            //        item.trackingBonusXp = xpNew;
-            //        item.doubleTrackingLoot = multiplier / 2; break;
-            //    case "Homesteading":
-            //        item.homesteadingBonusXp = xpNew;
-            //        item.woodcuttingBonusXp = xpNew / 3;
-            //        item.miningBonusXp = xpNew / 3;
-            //        item.fishingBonusXp = xpNew / 3;
-            //        item.foragingBonusXp = xpNew / 3;
-            //        break;
-            //}
+            switch (s.skillName)
+            {
+                case "Hitpoints":
+                    item.hitPointsBonusXp = xpNew; break;
+                case "Attack":
+                    item.attackBonusXP = xpNew; break;
+                case "Strength":
+                    item.strengthBonusXp = xpNew;
+                    item.critalChance = multiplier / 2; break;
+                case "Defense":
+                    item.defenceBonusXP = xpNew; break;
+                case "Ranged":
+                    item.rangeBonusXP = xpNew; break;
+                case "Magic":
+                    item.magicBonusXP = xpNew; break;
+                case "Devotion":
+                    item.devotionBonusXp = xpNew; break;
+                case "Beastmastery":
+                    item.beastMateryBonusXp = xpNew; break;
+                case "Dexterity":
+                    item.dexterityBonusXp = xpNew; break;
+                case "Foraging":
+                    item.foragingBonusXp = xpNew; break;
+                case "Herblore":
+                    item.herbologyBonusXp = xpNew; break;
+                case "Crafting":
+                    item.craftingBonusXp = xpNew; break;
+                case "Bowcrafting":
+                    item.bowCraftingBonusXp = xpNew; break;
+                case "Imbuing":
+                    item.imbuingBonusXp = xpNew; break;
+                case "Thieving":
+                    item.thievingBonusXp = xpNew; break;
+                case "Soulbinding":
+                    item.soulBindingBonusXp = xpNew; break;
+                case "Mining":
+                    item.miningBonusXp = xpNew; break;
+                case "Smithing":
+                    item.smithingBonusXp = xpNew; break;
+                case "Fishing":
+                    item.fishingBonusXp = xpNew; break;
+                case "Cooking":
+                    item.cookingBonusXp = xpNew; break;
+                case "Woodcutting":
+                    item.woodcuttingBonusXp = xpNew;
+                    item.firemakingBonusXp = xpNew / 2; break;
+                case "Firemaking":
+                    item.firemakingBonusXp = xpNew;
+                    item.woodcuttingBonusXp = xpNew / 2; break;
+                case "Tracking":
+                    item.trackingBonusXp = xpNew;
+                    item.doubleTrackingLoot = multiplier / 2; break;
+                case "Homesteading":
+                    item.homesteadingBonusXp = xpNew;
+                    item.woodcuttingBonusXp = xpNew / 3;
+                    item.miningBonusXp = xpNew / 3;
+                    item.fishingBonusXp = xpNew / 3;
+                    item.foragingBonusXp = xpNew / 3;
+                    break;
+            }
 
             Sprite[] animFrames = GetAnimationFrames(s.soulName);
             if (animFrames != null && animFrames.Length > 0)

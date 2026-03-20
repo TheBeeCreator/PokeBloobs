@@ -1,5 +1,6 @@
 *.vsidx
 /.vs/PokeBloobs/FileContentIndex
+/.vs
 /Libraries
 /PokeBloobs/bin
 /PokeBloobs/obj
