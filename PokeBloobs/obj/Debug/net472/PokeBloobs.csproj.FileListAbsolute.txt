@@ -51,3 +51,4 @@ C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net472\PokeBloobs.dl
 C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net472\PokeBloobs.pdb
 C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\obj\Debug\net472\PokeBloobs.sourcelink.json
 C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\bin\Debug\net472\UnityEngine.ImageConversionModule.dll
+C:\Users\BFoxx\source\repos\PokeBloobs\PokeBloobs\bin\Debug\net472\UnityEngine.AnimationModule.dll

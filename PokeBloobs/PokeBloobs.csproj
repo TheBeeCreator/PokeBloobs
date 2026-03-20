@@ -18,16 +18,68 @@
 
   <ItemGroup>
     <None Remove="PokeBloobsSouls.json" />
+    <None Remove="Sprites\blastoise.gif" />
+    <None Remove="Sprites\blastoise.png" />
+    <None Remove="Sprites\bloobsdev.gif" />
+    <None Remove="Sprites\bloobsdev.png" />
+    <None Remove="Sprites\bulbasaur.gif" />
     <None Remove="Sprites\bulbasaur.png" />
+    <None Remove="Sprites\celebi.gif" />
+    <None Remove="Sprites\celebi.png" />
+    <None Remove="Sprites\chansey.gif" />
+    <None Remove="Sprites\chansey.png" />
+    <None Remove="Sprites\charizard.gif" />
+    <None Remove="Sprites\charizard.png" />
+    <None Remove="Sprites\charmander.gif" />
     <None Remove="Sprites\charmander.png" />
+    <None Remove="Sprites\charmeleon.gif" />
+    <None Remove="Sprites\charmeleon.png" />
+    <None Remove="Sprites\ivysaur.gif" />
+    <None Remove="Sprites\ivysaur.png" />
+    <None Remove="Sprites\jigglypuff.gif" />
+    <None Remove="Sprites\jigglypuff.png" />
+    <None Remove="Sprites\squirtle.gif" />
     <None Remove="Sprites\squirtle.png" />
+    <None Remove="Sprites\togepi.gif" />
+    <None Remove="Sprites\togepi.png" />
+    <None Remove="Sprites\venusaur.gif" />
+    <None Remove="Sprites\venusaur.png" />
+    <None Remove="Sprites\wartortle.gif" />
+    <None Remove="Sprites\wartortle.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="PokeBloobsSouls.json" />
+    <EmbeddedResource Include="Sprites\blastoise.gif" />
+    <EmbeddedResource Include="Sprites\blastoise.png" />
+    <EmbeddedResource Include="Sprites\bloobsdev.gif" />
+    <EmbeddedResource Include="Sprites\bloobsdev.png" />
+    <EmbeddedResource Include="Sprites\bulbasaur.gif">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sprites\bulbasaur.png" />
+    <EmbeddedResource Include="Sprites\celebi.gif" />
+    <EmbeddedResource Include="Sprites\celebi.png" />
+    <EmbeddedResource Include="Sprites\chansey.gif" />
+    <EmbeddedResource Include="Sprites\chansey.png" />
+    <EmbeddedResource Include="Sprites\charizard.gif" />
+    <EmbeddedResource Include="Sprites\charizard.png" />
+    <EmbeddedResource Include="Sprites\charmander.gif" />
     <EmbeddedResource Include="Sprites\charmander.png" />
+    <EmbeddedResource Include="Sprites\charmeleon.gif" />
+    <EmbeddedResource Include="Sprites\charmeleon.png" />
+    <EmbeddedResource Include="Sprites\ivysaur.gif" />
+    <EmbeddedResource Include="Sprites\ivysaur.png" />
+    <EmbeddedResource Include="Sprites\jigglypuff.gif" />
+    <EmbeddedResource Include="Sprites\jigglypuff.png" />
+    <EmbeddedResource Include="Sprites\squirtle.gif" />
     <EmbeddedResource Include="Sprites\squirtle.png" />
+    <EmbeddedResource Include="Sprites\togepi.gif" />
+    <EmbeddedResource Include="Sprites\togepi.png" />
+    <EmbeddedResource Include="Sprites\venusaur.gif" />
+    <EmbeddedResource Include="Sprites\venusaur.png" />
+    <EmbeddedResource Include="Sprites\wartortle.gif" />
+    <EmbeddedResource Include="Sprites\wartortle.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -107,6 +159,9 @@
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\Libraries\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>F:\SteamLibrary\steamapps\common\Bloobs Adventure Idle\Bloobs Adventure Idle_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>..\Libraries\UnityEngine.CoreModule.dll</HintPath>

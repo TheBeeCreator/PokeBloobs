@@ -1,0 +1,71 @@
+```  public void UpdatePetBuffsDisplay()
+  {
+      Dictionary<string, float> buffs = new();
+
+      foreach (var pet in activePets)
+      {
+          if (pet == null) continue;
+
+          Item item = collectedPets.Find(p => p.itemName == pet.name);
+          if (item == null) continue;
+
+          void AddBuff(string key, float value)
+          {
+              if (value != 0f)
+              {
+                  if (buffs.ContainsKey(key))
+                      buffs[key] += value;
+                  else
+                      buffs[key] = value;
+              }
+          }
+
+          AddBuff("Woodcutting XP", item.woodcuttingBonusXp);
+          AddBuff("Mining XP", item.miningBonusXp);
+          AddBuff("Fishing XP", item.fishingBonusXp);
+          AddBuff("Foraging XP", item.foragingBonusXp);
+          AddBuff("Thieving XP", item.thievingBonusXp);
+          AddBuff("Dexterity XP", item.dexterityBonusXp);
+          AddBuff("SoulBinding XP", item.soulBindingBonusXp);
+          AddBuff("Smithing XP", item.smithingBonusXp);
+          AddBuff("Cooking XP", item.cookingBonusXp);
+          AddBuff("Firemaking XP", item.firemakingBonusXp);
+          AddBuff("Herbology XP", item.herbologyBonusXp);
+          AddBuff("Crafting XP", item.craftingBonusXp);
+          AddBuff("BowCrafting XP", item.bowCraftingBonusXp);
+          AddBuff("Tracking XP", item.trackingBonusXp);
+          AddBuff("Imbuing XP", item.imbuingBonusXp);
+          AddBuff("BeastMastery XP", item.beastMateryBonusXp);
+          AddBuff("HitPoints XP", item.hitPointsBonusXp);
+          AddBuff("Attack XP", item.attackBonusXP);
+          AddBuff("Strength XP", item.strengthBonusXp);
+          AddBuff("Defence XP", item.defenceBonusXP);
+          AddBuff("Range XP", item.rangeBonusXP);
+          AddBuff("Magic XP", item.magicBonusXP);
+          AddBuff("Devotion XP", item.devotionBonusXp);
+          AddBuff("HomeSteading XP", item.homesteadingBonusXp);
+          AddBuff("Melee Damage", item.meleeSoulDamage);
+          AddBuff("Melee Accuracy", item.accuracy);
+          AddBuff("Range Damage", item.rangedSoulDamage);
+          AddBuff("Range Accuracy", item.rangeAccuracy);
+          AddBuff("Magic Damage", item.magicSoulDamage);
+          AddBuff("Magic Accuracy", item.magicAccuracy);
+          AddBuff("Critical Chance", item.critalChance);
+          AddBuff("Tracking Double Resource Chance", item.doubleTrackingLoot);
+      }
+
+      // Build string
+      System.Text.StringBuilder sb = new();
+      foreach (var kvp in buffs)
+      {
+          // Show % for XP and Crit Chance, flat numbers for damage
+          if (kvp.Key.Contains("XP") || kvp.Key == "Critical Chance" || kvp.Key == "Tracking Double Resource Chance" || kvp.Key == "Melee Accuracy" || kvp.Key == "Range Accuracy" || kvp.Key == "Magic Accuracy")
+              sb.AppendLine($"{kvp.Key}: <color=yellow>+{kvp.Value:P1}</color>");
+          else
+              sb.AppendLine($"{kvp.Key}: <color=yellow>+{kvp.Value:F1}</color>");
+      }
+
+
+
+      activeBuffsText.text = sb.Length > 0 ? sb.ToString() : "No active pet buffs.";
+  }```

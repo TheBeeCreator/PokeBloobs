@@ -1,17 +1,89 @@
 [
   {
-    "soulName": "Bulbasuar",
+    "soulName": "Bulbasaur",
     "soulCategory": "event souls",
-    "skillName": "Woodcutting"
+    "skillName": "Woodcutting",
+    "rarity": 0
+  },
+  {
+    "soulName": "Ivysaur",
+    "soulCategory": "event souls",
+    "skillName": "Woodcutting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Venusaur",
+    "soulCategory": "event souls",
+    "skillName": "Woodcutting",
+    "rarity": 2
   },
   {
     "soulName": "Charmander",
     "soulCategory": "event souls",
-    "skillName": "Firemaking"
+    "skillName": "Firemaking",
+    "rarity": 0
+  },
+  {
+    "soulName": "Charmeleon",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 1
+  },
+  {
+    "soulName": "Charizard",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 2
   },
   {
     "soulName": "Squirtle",
     "soulCategory": "event souls",
-    "skillName": "Fishing"
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Wartortle",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Blastoise",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 2
+  },
+  {
+    "soulName": "Jigglypuff",
+    "soulCategory": "event souls",
+    "skillName": "Hitpoints",
+    "rarity": 0
+  },
+  {
+    "soulName": "Chansey",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 2
+  },
+
+  {
+    "soulName": "Togepi",
+    "soulCategory": "event souls",
+    "skillName": "Hitpoints",
+    "rarity": 0
+  },
+
+  {
+    "soulName": "Celebi",
+    "soulCategory": "event souls",
+    "skillName": "Woodcutting",
+    "rarity": 4
+  },
+
+  {
+    "soulName": "BloobsDev",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 5
   }
 ]
