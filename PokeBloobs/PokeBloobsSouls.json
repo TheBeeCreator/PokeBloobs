@@ -62,13 +62,13 @@
   {
     "soulName": "Metapod",
     "soulCategory": "event souls",
-    "skillName": "Foraging",
+    "skillName": "Defense",
     "rarity": 1
   },
   {
     "soulName": "Butterfree",
     "soulCategory": "event souls",
-    "skillName": "Foraging",
+    "skillName": "Strength",
     "rarity": 2
   },
   {
@@ -80,13 +80,13 @@
   {
     "soulName": "Kakuna",
     "soulCategory": "event souls",
-    "skillName": "Foraging",
+    "skillName": "Defense",
     "rarity": 1
   },
   {
     "soulName": "Beedrill",
     "soulCategory": "event souls",
-    "skillName": "Foraging",
+    "skillName": "Strength",
     "rarity": 2
   },
   {

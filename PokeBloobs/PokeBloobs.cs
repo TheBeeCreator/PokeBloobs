@@ -252,6 +252,7 @@ namespace PokeBloobs
             Harmony.CreateAndPatchAll(typeof(Patch_CompendiumSpriteFix));
             Harmony.CreateAndPatchAll(typeof(Patch_SummonPetAnimator));
             Harmony.CreateAndPatchAll(typeof(Patch_SummonPetBySlot));
+            Harmony.CreateAndPatchAll(typeof(Patch_PetManagerAddPet));
 
             //Patch individual skills for there respective pet drops
             Harmony.CreateAndPatchAll(typeof(Patch_HitPointsSkill));
