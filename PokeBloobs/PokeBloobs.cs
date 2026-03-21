@@ -191,7 +191,7 @@ namespace PokeBloobs
         public static List<Item> _cachedHerbloreSouls;
         public static List<Item> _cachedCraftingSouls;
         public static List<Item> _cachedBowCraftingSouls;
-        public static List<Item> _crachedImbuingSouls;
+        public static List<Item> _cachedImbuingSouls;
         public static List<Item> _cachedThievingSouls;
         public static List<Item> _cachedSoulBindingSouls;
 
@@ -824,7 +824,7 @@ namespace PokeBloobs
 
             if (_cachedDefenseSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedDefenseSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Defense"));
 
@@ -904,7 +904,7 @@ namespace PokeBloobs
 
             if (_cachedMagicSouls == null)
             {
-                _cachedWoodcuttingSouls = new List<Item>();
+                _cachedMagicSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Magic"));
 
@@ -1062,9 +1062,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedForagingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedForagingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Foraging"));
 
@@ -1072,13 +1072,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedForagingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedForagingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1102,9 +1102,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedHerbloreSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedHerbloreSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Herblore"));
 
@@ -1112,13 +1112,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedHerbloreSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedHerbloreSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1142,9 +1142,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedCraftingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedCraftingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Crafting"));
 
@@ -1152,13 +1152,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedCraftingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedCraftingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1182,9 +1182,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedBowCraftingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedBowCraftingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Bowcrafting"));
 
@@ -1192,13 +1192,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedBowCraftingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedBowCraftingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1222,9 +1222,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedImbuingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedImbuingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Imbuing"));
 
@@ -1232,13 +1232,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedImbuingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedImbuingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1262,9 +1262,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedThievingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedThievingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Thieving"));
 
@@ -1272,13 +1272,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedThievingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedThievingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1302,9 +1302,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedSoulBindingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedSoulBindingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Soulbinding"));
 
@@ -1312,13 +1312,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedSoulBindingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedSoulBindingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1342,9 +1342,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedMiningSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedMiningSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Mining"));
 
@@ -1352,13 +1352,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedMiningSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedMiningSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1382,9 +1382,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedSmithingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedSmithingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Smithing"));
 
@@ -1392,13 +1392,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedSmithingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedSmithingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1422,9 +1422,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedFishingsouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedFishingsouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Fishing"));
 
@@ -1432,13 +1432,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedFishingsouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedFishingsouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1462,9 +1462,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedCookingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedCookingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Cooking"));
 
@@ -1472,13 +1472,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedCookingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedCookingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1502,9 +1502,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedWoodcuttingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedWoodcuttingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Woodcutting"));
 
@@ -1512,13 +1512,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedWoodcuttingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedWoodcuttingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1542,9 +1542,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedFiremakingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedFiremakingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Firemaking"));
 
@@ -1552,13 +1552,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedFiremakingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedFiremakingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1582,9 +1582,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedTrackingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedTrackingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Tracking"));
 
@@ -1592,13 +1592,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedTrackingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedTrackingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1622,9 +1622,9 @@ namespace PokeBloobs
                 return;
             }
 
-            if (_cachedBeastmasterSouls == null)
+            if (_cachedHomesteadingSouls == null)
             {
-                _cachedBeastmasterSouls = new List<Item>();
+                _cachedHomesteadingSouls = new List<Item>();
                 var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
                     .Where(n => n.skillName.Contains("Homesteading"));
 
@@ -1632,13 +1632,13 @@ namespace PokeBloobs
                 {
                     Item c = PokeBloobs.BuildSoul(soul);
                     c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-                    _cachedBeastmasterSouls.Add(c);
+                    _cachedHomesteadingSouls.Add(c);
                 }
             }
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedHomesteadingSouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
