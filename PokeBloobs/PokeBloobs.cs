@@ -385,7 +385,8 @@ namespace PokeBloobs
             switch (s.skillName)
             {
                 case "Hitpoints":
-                    item.hitPointsBonusXp = xpNew; break;
+                    item.hitPointsBonusXp = xpNew;
+                    item.defenceBonusXP = xpNew / 2; break;
                 case "Attack":
                     item.attackBonusXP = xpNew;
                     item.accuracy = multiplier / 2; break; 
@@ -393,7 +394,8 @@ namespace PokeBloobs
                     item.strengthBonusXp = xpNew;
                     item.critalChance = multiplier / 2; break;
                 case "Defense":
-                    item.defenceBonusXP = xpNew; break;
+                    item.defenceBonusXP = xpNew;
+                    item.hitPointsBonusXp = xpNew / 2; break;
                 case "Ranged":
                     item.rangeBonusXP = xpNew;
                     item.critalChance = multiplier / 2; break;
@@ -1836,12 +1838,13 @@ namespace PokeBloobs
         static bool Prefix(PetManager __instance, Item petItem)
         {
             PokeBloobs plugin = GameObject.FindObjectOfType<PokeBloobs>();
-            if (plugin == null) return true;
+            //if (plugin == null) return true;
 
             // Get the list of all pets required before this one
             string petName = petItem.itemName;
             Debug.Log($"[PokeBloobs] Attempting to unlock {petName}");
             List<string> requirements = plugin.GetRequiredPreEvolutions(petName);
+            Debug.Log($"[PokeBloobs] {petName} requires {requirements.Count} pre-evolutions");
 
             foreach (string requiredPet in requirements)
             {
