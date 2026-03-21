@@ -417,9 +417,11 @@ namespace PokeBloobs
                     item.dexterityBonusXp = xpNew;
                     item.thievingBonusXp = xpNew / 3; break;
                 case "Foraging":
-                    item.foragingBonusXp = xpNew; break;
+                    item.foragingBonusXp = xpNew;
+                    item.herbologyBonusXp = xpNew / 2; break;
                 case "Herblore":
-                    item.herbologyBonusXp = xpNew; break;
+                    item.herbologyBonusXp = xpNew;
+                    item.foragingBonusXp = xpNew / 2; break;
                 case "Crafting":
                     item.craftingBonusXp = xpNew;
                     item.bowCraftingBonusXp = xpNew; break;
@@ -662,12 +664,12 @@ namespace PokeBloobs
         {
             return rarity switch
             {
-                0 => 0.001f,        //0.01% Chance
-                1 => 0.0005f,       //0.005% Chance
-                2 => 0.00001f,      //0.0001%
-                3 => 0.000001f,     //0.00001%
-                4 => 0.0000001f,    //0.0000001%
-                5 => 0.00000001f,   //0.00000001%
+                0 => 0.0001f,        //0.001% Chance
+                1 => 0.00005f,       //0.0005% Chance
+                2 => 0.000001f,      //0.00001%
+                3 => 0.0000001f,     //0.000001%
+                4 => 0.00000001f,    //0.00000001%
+                5 => 0.000000001f,   //0.000000001%
                 _ => 0.01f
             };
         }
