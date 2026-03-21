@@ -390,19 +390,22 @@ namespace PokeBloobs
                     item.defenceBonusXP = xpNew / 2; break;
                 case "Attack":
                     item.attackBonusXP = xpNew;
-                    item.accuracy = multiplier / 2; break; 
+                    item.accuracy = xpNew / 2;
+                    item.critalChance = xpNew / 2; break; 
                 case "Strength":
                     item.strengthBonusXp = xpNew;
-                    item.critalChance = multiplier / 2; break;
+                    item.meleeSoulDamage = xpNew / 2; break;
                 case "Defense":
                     item.defenceBonusXP = xpNew;
                     item.hitPointsBonusXp = xpNew / 2; break;
                 case "Ranged":
                     item.rangeBonusXP = xpNew;
-                    item.critalChance = multiplier / 2; break;
+                    item.rangedSoulDamage = xpNew / 2;
+                    item.rangeAccuracy = xpNew / 2; break;
                 case "Magic":
                     item.magicBonusXP = xpNew;
-                    item.critalChance = multiplier / 2; break;
+                    item.magicSoulDamage = xpNew / 2; 
+                    item.magicAccuracy = xpNew / 2; break;
                 case "Devotion":
                     item.devotionBonusXp = xpNew;
                     item.beastMateryBonusXp = xpNew / 2; break;
@@ -664,13 +667,13 @@ namespace PokeBloobs
         {
             return rarity switch
             {
-                0 => 0.0001f,        //0.001% Chance
-                1 => 0.00005f,       //0.0005% Chance
-                2 => 0.000001f,      //0.00001%
-                3 => 0.0000001f,     //0.000001%
-                4 => 0.00000001f,    //0.00000001%
-                5 => 0.000000001f,   //0.000000001%
-                _ => 0.0001f
+                0 => 1f / 50000f,       // 1 in 50k
+                1 => 1f / 75000f,       // 1 in 75k
+                2 => 1f / 125000f,      // 1 in 125k
+                3 => 1f / 250000f,      // 1 in 250k
+                4 => 1f / 500000f,      // 1 in 500k
+                5 => 1f / 100000000f,   // 1 in 100M
+                _ => 1f / 50000f        // 1 in 50k
             };
         }
 
