@@ -387,44 +387,62 @@ namespace PokeBloobs
                 case "Hitpoints":
                     item.hitPointsBonusXp = xpNew; break;
                 case "Attack":
-                    item.attackBonusXP = xpNew; break;
+                    item.attackBonusXP = xpNew;
+                    item.accuracy = multiplier / 2; break; 
                 case "Strength":
                     item.strengthBonusXp = xpNew;
                     item.critalChance = multiplier / 2; break;
                 case "Defense":
                     item.defenceBonusXP = xpNew; break;
                 case "Ranged":
-                    item.rangeBonusXP = xpNew; break;
+                    item.rangeBonusXP = xpNew;
+                    item.critalChance = multiplier / 2; break;
                 case "Magic":
-                    item.magicBonusXP = xpNew; break;
+                    item.magicBonusXP = xpNew;
+                    item.critalChance = multiplier / 2; break;
                 case "Devotion":
-                    item.devotionBonusXp = xpNew; break;
+                    item.devotionBonusXp = xpNew;
+                    item.beastMateryBonusXp = xpNew / 2; break;
                 case "Beastmastery":
-                    item.beastMateryBonusXp = xpNew; break;
+                    item.beastMateryBonusXp = xpNew;
+                    item.attackBonusXP = xpNew / 25;
+                    item.defenceBonusXP = xpNew / 25;
+                    item.strengthBonusXp = xpNew / 25;
+                    item.rangeBonusXP = xpNew / 25;
+                    item.magicBonusXP = xpNew / 25; break;
                 case "Dexterity":
-                    item.dexterityBonusXp = xpNew; break;
+                    item.dexterityBonusXp = xpNew;
+                    item.thievingBonusXp = xpNew / 3; break;
                 case "Foraging":
                     item.foragingBonusXp = xpNew; break;
                 case "Herblore":
                     item.herbologyBonusXp = xpNew; break;
                 case "Crafting":
-                    item.craftingBonusXp = xpNew; break;
-                case "Bowcrafting":
+                    item.craftingBonusXp = xpNew;
                     item.bowCraftingBonusXp = xpNew; break;
+                case "Bowcrafting":
+                    item.bowCraftingBonusXp = xpNew;
+                    item.craftingBonusXp = xpNew; break;
                 case "Imbuing":
-                    item.imbuingBonusXp = xpNew; break;
+                    item.imbuingBonusXp = xpNew;
+                    item.magicBonusXP = xpNew / 2; break;
                 case "Thieving":
-                    item.thievingBonusXp = xpNew; break;
+                    item.thievingBonusXp = xpNew;
+                    item.dexterityBonusXp = xpNew / 2; break;
                 case "Soulbinding":
-                    item.soulBindingBonusXp = xpNew; break;
+                    item.soulBindingBonusXp = xpNew * 2; break;
                 case "Mining":
-                    item.miningBonusXp = xpNew; break;
-                case "Smithing":
+                    item.miningBonusXp = xpNew;
                     item.smithingBonusXp = xpNew; break;
+                case "Smithing":
+                    item.smithingBonusXp = xpNew;
+                    item.miningBonusXp = xpNew; break;
                 case "Fishing":
-                    item.fishingBonusXp = xpNew; break;
-                case "Cooking":
+                    item.fishingBonusXp = xpNew;
                     item.cookingBonusXp = xpNew; break;
+                case "Cooking":
+                    item.cookingBonusXp = xpNew;
+                    item.fishingBonusXp = xpNew; break;
                 case "Woodcutting":
                     item.woodcuttingBonusXp = xpNew;
                     item.firemakingBonusXp = xpNew / 2; break;
@@ -641,12 +659,12 @@ namespace PokeBloobs
         {
             return rarity switch
             {
-                0 => 0.001f,        //0.1% Chance
-                1 => 0.0005f,       //0.05% Chance
-                2 => 0.00001f,      //0.001%
-                3 => 0.000001f,     //0.0001%
-                4 => 0.0000001f,    //0.000001%
-                5 => 0.00000001f,   //0.0000001%
+                0 => 0.001f,        //0.01% Chance
+                1 => 0.0005f,       //0.005% Chance
+                2 => 0.00001f,      //0.0001%
+                3 => 0.000001f,     //0.00001%
+                4 => 0.0000001f,    //0.0000001%
+                5 => 0.00000001f,   //0.00000001%
                 _ => 0.01f
             };
         }
@@ -1020,7 +1038,7 @@ namespace PokeBloobs
 
             var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
 
-            foreach (var soulItem in _cachedBeastmasterSouls)
+            foreach (var soulItem in _cachedDexteritySouls)
             {
                 if (!existingNames.Contains(soulItem.name))
                 {
@@ -1815,12 +1833,14 @@ namespace PokeBloobs
     [HarmonyPatch(typeof(PetManager), "AddPet")]
     public static class Patch_PetManagerAddPet
     {
-        static bool Prefix(PetManager __instance, string petName)
+        static bool Prefix(PetManager __instance, Item petItem)
         {
             PokeBloobs plugin = GameObject.FindObjectOfType<PokeBloobs>();
             if (plugin == null) return true;
 
             // Get the list of all pets required before this one
+            string petName = petItem.itemName;
+            Debug.Log($"[PokeBloobs] Attempting to unlock {petName}");
             List<string> requirements = plugin.GetRequiredPreEvolutions(petName);
 
             foreach (string requiredPet in requirements)

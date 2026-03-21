@@ -110,13 +110,13 @@
   {
     "soulName": "Rattata",
     "soulCategory": "event souls",
-    "skillName": "Dexterity",
+    "skillName": "Defense",
     "rarity": 0
   },
   {
     "soulName": "Raticate",
     "soulCategory": "event souls",
-    "skillName": "Dexterity",
+    "skillName": "Defense",
     "rarity": 1
   },
   {
@@ -734,7 +734,7 @@
   {
     "soulName": "Scyther",
     "soulCategory": "event souls",
-    "skillName": "Dexterity",
+    "skillName": "Attack",
     "rarity": 3
   },
   {
@@ -848,7 +848,7 @@
   {
     "soulName": "Aerodactyl",
     "soulCategory": "event souls",
-    "skillName": "Dexterity",
+    "skillName": "Strength",
     "rarity": 2
   },
   {
