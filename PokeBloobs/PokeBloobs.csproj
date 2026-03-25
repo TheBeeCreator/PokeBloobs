@@ -739,4 +739,8 @@
       <HintPath>F:\SteamLibrary\steamapps\common\Bloobs Adventure Idle\Bloobs Adventure Idle_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
 </Project>
