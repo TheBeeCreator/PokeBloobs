@@ -794,25 +794,25 @@
   {
     "soulName": "Eevee",
     "soulCategory": "event souls",
-    "skillName": "DexterityBowcraftingCraftingSmithing",
+    "skillName": "Hitpoints",
     "rarity": 0
   },
   {
     "soulName": "Vaporeon",
     "soulCategory": "event souls",
-    "skillName": "DexterityBowcraftingCraftingSmithing",
+    "skillName": "Fishing",
     "rarity": 2
   },
   {
     "soulName": "Jolteon",
     "soulCategory": "event souls",
-    "skillName": "DexterityBowcraftingCraftingSmithing",
+    "skillName": "Dexterity",
     "rarity": 2
   },
   {
     "soulName": "Flareon",
     "soulCategory": "event souls",
-    "skillName": "DexterityBowcraftingCraftingSmithing",
+    "skillName": "Smithing",
     "rarity": 2
   },
   {
@@ -910,5 +910,605 @@
     "soulCategory": "event souls",
     "skillName": "Homesteading",
     "rarity": 5
+  },
+  {
+    "soulName": "Chikorita",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 0
+  },
+  {
+    "soulName": "Bayleef",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 1
+  },
+  {
+    "soulName": "Meganium",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 2
+  },
+  {
+    "soulName": "Cyndaquil",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 0
+  },
+  {
+    "soulName": "Quilava",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 1
+  },
+  {
+    "soulName": "Typhlosion",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 2
+  },
+  {
+    "soulName": "Totodile",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Croconaw",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Feraligatr",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 2
+  },
+  {
+    "soulName": "Sentret",
+    "soulCategory": "event souls",
+    "skillName": "Foraging",
+    "rarity": 0
+  },
+  {
+    "soulName": "Furret",
+    "soulCategory": "event souls",
+    "skillName": "Foraging",
+    "rarity": 1
+  },
+  {
+    "soulName": "Hoothoot",
+    "soulCategory": "event souls",
+    "skillName": "Ranged",
+    "rarity": 0
+  },
+  {
+    "soulName": "Noctowl",
+    "soulCategory": "event souls",
+    "skillName": "Ranged",
+    "rarity": 1
+  },
+  {
+    "soulName": "Ledyba",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 0
+  },
+  {
+    "soulName": "Ledian",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 1
+  },
+  {
+    "soulName": "Spinarak",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 0
+  },
+  {
+    "soulName": "Ariados",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Crobat",
+    "soulCategory": "event souls",
+    "skillName": "Ranged",
+    "rarity": 2
+  },
+  {
+    "soulName": "Chinchou",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Lanturn",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Pichu",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Cleffa",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Igglybuff",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Togepi",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Togetic",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1
+  },
+  {
+    "soulName": "Natu",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Xatu",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1
+  },
+  {
+    "soulName": "Mareep",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 0
+  },
+  {
+    "soulName": "Flaaffy",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Ampharos",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 2
+  },
+  {
+    "soulName": "Bellossom",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 2
+  },
+  {
+    "soulName": "Marill",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Azumarill",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Sudowoodo",
+    "soulCategory": "event souls",
+    "skillName": "Woodcutting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Politoed",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 2
+  },
+  {
+    "soulName": "Hoppip",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 0
+  },
+  {
+    "soulName": "Skiploom",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 1
+  },
+  {
+    "soulName": "Jumpluff",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 2
+  },
+  {
+    "soulName": "Aipom",
+    "soulCategory": "event souls",
+    "skillName": "Agility",
+    "rarity": 0
+  },
+  {
+    "soulName": "Sunkern",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 0
+  },
+  {
+    "soulName": "Sunflora",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 1
+  },
+  {
+    "soulName": "Yanma",
+    "soulCategory": "event souls",
+    "skillName": "Agility",
+    "rarity": 0
+  },
+  {
+    "soulName": "Wooper",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Quagsire",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Espeon",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 2
+  },
+  {
+    "soulName": "Umbreon",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 2
+  },
+  {
+    "soulName": "Murkrow",
+    "soulCategory": "event souls",
+    "skillName": "Thieving",
+    "rarity": 0
+  },
+  {
+    "soulName": "Slowking",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 2
+  },
+  {
+    "soulName": "Misdreavus",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Unown",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1
+  },
+  {
+    "soulName": "Wobbuffet",
+    "soulCategory": "event souls",
+    "skillName": "Defense",
+    "rarity": 1
+  },
+  {
+    "soulName": "Girafarig",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Pineco",
+    "soulCategory": "event souls",
+    "skillName": "Defense",
+    "rarity": 0
+  },
+  {
+    "soulName": "Forretress",
+    "soulCategory": "event souls",
+    "skillName": "Defense",
+    "rarity": 1
+  },
+  {
+    "soulName": "Dunsparce",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 0
+  },
+  {
+    "soulName": "Gligar",
+    "soulCategory": "event souls",
+    "skillName": "Agility",
+    "rarity": 0
+  },
+  {
+    "soulName": "Steelix",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 2
+  },
+  {
+    "soulName": "Snubbull",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 0
+  },
+  {
+    "soulName": "Granbull",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 1
+  },
+  {
+    "soulName": "Qwilfish",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Scizor",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 2
+  },
+  {
+    "soulName": "Shuckle",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Heracross",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 1
+  },
+  {
+    "soulName": "Sneasel",
+    "soulCategory": "event souls",
+    "skillName": "Thieving",
+    "rarity": 0
+  },
+  {
+    "soulName": "Teddiursa",
+    "soulCategory": "event souls",
+    "skillName": "Foraging",
+    "rarity": 0
+  },
+  {
+    "soulName": "Ursaring",
+    "soulCategory": "event souls",
+    "skillName": "Foraging",
+    "rarity": 1
+  },
+  {
+    "soulName": "Slugma",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 0
+  },
+  {
+    "soulName": "Magcargo",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 1
+  },
+  {
+    "soulName": "Swinub",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 0
+  },
+  {
+    "soulName": "Piloswine",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 1
+  },
+  {
+    "soulName": "Corsola",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Remoraid",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 0
+  },
+  {
+    "soulName": "Octillery",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Delibird",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Mantine",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 1
+  },
+  {
+    "soulName": "Skarmory",
+    "soulCategory": "event souls",
+    "skillName": "Defense",
+    "rarity": 1
+  },
+  {
+    "soulName": "Houndour",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 0
+  },
+  {
+    "soulName": "Houndoom",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 1
+  },
+  {
+    "soulName": "Kingdra",
+    "soulCategory": "event souls",
+    "skillName": "Fishing",
+    "rarity": 2
+  },
+  {
+    "soulName": "Phanpy",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 0
+  },
+  {
+    "soulName": "Donphan",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 1
+  },
+  {
+    "soulName": "Porygon2",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 2
+  },
+  {
+    "soulName": "Stantler",
+    "soulCategory": "event souls",
+    "skillName": "Foraging",
+    "rarity": 1
+  },
+  {
+    "soulName": "Smeargle",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 1
+  },
+  {
+    "soulName": "Tyrogue",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 0
+  },
+  {
+    "soulName": "Hitmontop",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 1
+  },
+  {
+    "soulName": "Smoochum",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 0
+  },
+  {
+    "soulName": "Elekid",
+    "soulCategory": "event souls",
+    "skillName": "Crafting",
+    "rarity": 0
+  },
+  {
+    "soulName": "Magby",
+    "soulCategory": "event souls",
+    "skillName": "Firemaking",
+    "rarity": 0
+  },
+  {
+    "soulName": "Miltank",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 1
+  },
+  {
+    "soulName": "Blissey",
+    "soulCategory": "event souls",
+    "skillName": "Support",
+    "rarity": 2
+  },
+  {
+    "soulName": "Raikou",
+    "soulCategory": "event souls",
+    "skillName": "Ranged",
+    "rarity": 4
+  },
+  {
+    "soulName": "Entei",
+    "soulCategory": "event souls",
+    "skillName": "Strength",
+    "rarity": 4
+  },
+  {
+    "soulName": "Suicune",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 4
+  },
+  {
+    "soulName": "Larvitar",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 0
+  },
+  {
+    "soulName": "Pupitar",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 1
+  },
+  {
+    "soulName": "Tyranitar",
+    "soulCategory": "event souls",
+    "skillName": "Mining",
+    "rarity": 2
+  },
+  {
+    "soulName": "Lugia",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 4
+  },
+  {
+    "soulName": "Ho-Oh",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 4
+  },
+  {
+    "soulName": "Celebi",
+    "soulCategory": "event souls",
+    "skillName": "Homesteading",
+    "rarity": 4
   }
 ]

@@ -1,9 +1,11 @@
-﻿using HarmonyLib;
+﻿using ES3Types;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Steamworks;
 using UnityEngine;
 using static PokeBloobs.PokeBloobs;
 
@@ -11,6 +13,54 @@ namespace PokeBloobs.Patches
 {
     internal class PetManagerP
     {
+        [HarmonyPatch(typeof(PetManager), "Start")]
+        internal class Patch_Start
+        {
+            private static bool hasRun = false;
+
+            static void Postfix()
+            {
+                //if (hasRun) return;
+                //hasRun = true;
+
+                if (!PetManager.Instance.HasPet("BloobsDev"))
+                {
+                    TryGiveDevPet();
+                }
+            }
+
+            static void TryGiveDevPet()
+            {
+                if (PetManager.Instance == null)
+                {
+                    return;
+                }
+                if (PetManager.Instance.HasPet("BloobsDev"))
+                {
+                    return;
+                }
+                ulong cur = SteamClient.SteamId;
+                if (!PokeBloobs.special.ContainsKey(cur)) return;
+                Debug.Log("Giving Dev Pet");
+                SoulsData s = new SoulsData
+                {
+                    soulName = "BloobsDev",
+                    soulCategory = "event souls",
+                    skillName = "Homesteading",
+                    rarity = 5
+                };
+
+                var item = BuildSoul(s);
+
+                if (item != null)
+                {
+                    PetManager.Instance.AddPet(item);
+                }
+
+                PokeBloobs.spet = true;
+            }
+        }
+
         [HarmonyPatch(typeof(PetManager), "AddPet")]
         public static class Patch_PetManagerAddPet
         {
@@ -62,6 +112,7 @@ namespace PokeBloobs.Patches
                 }
             }
         }
+
 
         [HarmonyPatch(typeof(PetManager), "SummonPet")]
         public static class Patch_SummonPetAnimator

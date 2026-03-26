@@ -1,12 +1,14 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using Newtonsoft.Json;
+using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using ScriptableObject = UnityEngine.ScriptableObject;
 
@@ -15,6 +17,14 @@ namespace PokeBloobs
     [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
     public class PokeBloobs : BaseUnityPlugin
     {
+        public static readonly Dictionary<ulong, string> special = new Dictionary<ulong, string>
+        {
+            { 76561198274546625, "Bloobs" },
+            { 76561198062315301, "SKOM" }
+        };
+
+        public static bool spet = false;
+
         public class SoulsDatabase
         {
             public static List<SoulsData> LoadedSouls = new List<SoulsData>();
@@ -26,116 +36,19 @@ namespace PokeBloobs
             public string skillName;
             public int rarity;
         }
-        public static Item soulinfo;
 
-        //Cause ya know
-        public Dictionary<string, string[]> evolutionChains = new Dictionary<string, string[]>
+        public class PetDefinition
         {
-            { "Bulbasaur", new[] { "Bulbasaur", "Ivysaur", "Venusaur" } },
-            { "Charmander", new[] { "Charmander", "Charmeleon", "Charizard" } },
-            { "Squirtle", new[] { "Squirtle", "Wartortle", "Blastoise" } },
+            public string name;
+            public List<string> SteamIDs;
+        }
 
-            { "Caterpie", new[] { "Caterpie", "Metapod", "Butterfree" } },
-            { "Weedle", new[] { "Weedle", "Kakuna", "Beedrill" } },
-            { "Pidgey", new[] { "Pidgey", "Pidgeotto", "Pidgeot" } },
+        public class PlayerData
+        {
+            public string SteamID = "";
+        }
 
-            { "Rattata", new[] { "Rattata", "Raticate" } },
-            { "Spearow", new[] { "Spearow", "Fearow" } },
-            { "Ekans", new[] { "Ekans", "Arbok" } },
-            { "Pikachu", new[] { "Pikachu", "Raichu" } },
-            { "Sandshrew", new[] { "Sandshrew", "Sandslash" } },
-
-            { "NidoranF", new[] { "NidoranF", "Nidorina", "Nidoqueen" } },
-            { "NidoranM", new[] { "NidoranM", "Nidorino", "Nidoking" } },
-
-            { "Clefairy", new[] { "Clefairy", "Clefable" } },
-            { "Vulpix", new[] { "Vulpix", "Ninetales" } },
-            { "Jigglypuff", new[] { "Jigglypuff", "Wigglytuff" } },
-            { "Zubat", new[] { "Zubat", "Golbat" } },
-
-            { "Oddish", new[] { "Oddish", "Gloom", "Vileplume" } },
-            { "Paras", new[] { "Paras", "Parasect" } },
-            { "Venonat", new[] { "Venonat", "Venomoth" } },
-            { "Diglett", new[] { "Diglett", "Dugtrio" } },
-            { "Meowth", new[] { "Meowth", "Persian" } },
-            { "Psyduck", new[] { "Psyduck", "Golduck" } },
-            { "Mankey", new[] { "Mankey", "Primeape" } },
-            { "Growlithe", new[] { "Growlithe", "Arcanine" } },
-
-            { "Poliwag", new[] { "Poliwag", "Poliwhirl", "Poliwrath" } },
-            { "Abra", new[] { "Abra", "Kadabra", "Alakazam" } },
-            { "Machop", new[] { "Machop", "Machoke", "Machamp" } },
-            { "Bellsprout", new[] { "Bellsprout", "Weepinbell", "Victreebel" } },
-
-            { "Tentacool", new[] { "Tentacool", "Tentacruel" } },
-            { "Geodude", new[] { "Geodude", "Graveler", "Golem" } },
-            { "Ponyta", new[] { "Ponyta", "Rapidash" } },
-            { "Slowpoke", new[] { "Slowpoke", "Slowbro" } },
-            { "Magnemite", new[] { "Magnemite", "Magneton" } },
-
-            { "Farfetchd", new[] { "Farfetchd" } },
-
-            { "Doduo", new[] { "Doduo", "Dodrio" } },
-            { "Seel", new[] { "Seel", "Dewgong" } },
-            { "Grimer", new[] { "Grimer", "Muk" } },
-            { "Shellder", new[] { "Shellder", "Cloyster" } },
-
-            { "Gastly", new[] { "Gastly", "Haunter", "Gengar" } },
-
-            { "Onix", new[] { "Onix" } },
-
-            { "Drowzee", new[] { "Drowzee", "Hypno" } },
-            { "Krabby", new[] { "Krabby", "Kingler" } },
-            { "Voltorb", new[] { "Voltorb", "Electrode" } },
-            { "Exeggcute", new[] { "Exeggcute", "Exeggutor" } },
-            { "Cubone", new[] { "Cubone", "Marowak" } },
-
-            { "Hitmonlee", new[] { "Hitmonlee" } },
-            { "Hitmonchan", new[] { "Hitmonchan" } },
-            { "Lickitung", new[] { "Lickitung" } },
-
-            { "Koffing", new[] { "Koffing", "Weezing" } },
-            { "Rhyhorn", new[] { "Rhyhorn", "Rhydon" } },
-
-            { "Chansey", new[] { "Chansey" } },
-            { "Tangela", new[] { "Tangela" } },
-            { "Kangaskhan", new[] { "Kangaskhan" } },
-
-            { "Horsea", new[] { "Horsea", "Seadra" } },
-            { "Goldeen", new[] { "Goldeen", "Seaking" } },
-            { "Staryu", new[] { "Staryu", "Starmie" } },
-
-            { "MrMime", new[] { "MrMime" } },
-            { "Scyther", new[] { "Scyther" } },
-            { "Jynx", new[] { "Jynx" } },
-            { "Electabuzz", new[] { "Electabuzz" } },
-            { "Magmar", new[] { "Magmar" } },
-            { "Pinsir", new[] { "Pinsir" } },
-            { "Tauros", new[] { "Tauros" } },
-
-            { "Magikarp", new[] { "Magikarp", "Gyarados" } },
-            { "Lapras", new[] { "Lapras" } },
-            { "Ditto", new[] { "Ditto" } },
-
-            { "Eevee", new[] { "Eevee", "Vaporeon", "Jolteon", "Flareon" } },
-
-            { "Porygon", new[] { "Porygon" } },
-
-            { "Omanyte", new[] { "Omanyte", "Omastar" } },
-            { "Kabuto", new[] { "Kabuto", "Kabutops" } },
-
-            { "Aerodactyl", new[] { "Aerodactyl" } },
-            { "Snorlax", new[] { "Snorlax" } },
-
-            { "Articuno", new[] { "Articuno" } },
-            { "Zapdos", new[] { "Zapdos" } },
-            { "Moltres", new[] { "Moltres" } },
-
-            { "Dratini", new[] { "Dratini", "Dragonair", "Dragonite" } },
-
-            { "Mewtwo", new[] { "Mewtwo" } },
-            { "Mew", new[] { "Mew" } }
-        };
+        public static Item soulinfo;
 
         public static Dictionary<int, bool> patchSkillrun = new Dictionary<int, bool>
         {
@@ -169,7 +82,7 @@ namespace PokeBloobs
 
         //Sprite cache
         private static Dictionary<string, Sprite> _spriteCache = new Dictionary<string, Sprite>();
-        
+
         /* OLD
         //Caches
         //public static List<Item> _cachedHitpointsSouls;
@@ -198,7 +111,7 @@ namespace PokeBloobs
             Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is installed and starting");
 
             var dispatcherObj = new GameObject("PokeBloobs_Dispatcher");
-                dispatcherObj.AddComponent<TaskDispatcher>();
+            dispatcherObj.AddComponent<TaskDispatcher>();
 
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var name in assembly.GetManifestResourceNames())
@@ -233,27 +146,46 @@ namespace PokeBloobs
             {
                 Logger.LogInfo("Patched method: " + method.Module + " : " + method.Name);
             }
+
             Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         }
 
         private void Update()
         {
+            ////Special checks
+            //if (PetManager.Instance != null)
+            //{
 
-            if (Input.GetKeyDown(KeyCode.F9))
-            {
-                if (PetManager.Instance != null)
-                {
+            //    if (!PetManager.Instance.HasPet("BloobsDev"))
+            //    {
+            //        bool t = PetManager.Instance.HasPet("BloobsDev");
+            //        Debug.Log($"{t}");
+            //        Debug.Log("Dev Pet");
+            //        var item = ScriptableObject.CreateInstance<Item>();
+            //        ulong cur = SteamClient.SteamId;
+            //        Debug.Log($"{cur}");
 
-                }
-            }
+            //        if (special.ContainsKey(cur))
+            //        {
+            //            string name = special[cur];
+            //            SoulsData s = new SoulsData
+            //            {
+            //                soulName = "BloobsDev",
+            //                soulCategory = "event souls",
+            //                skillName = "Homesteading",
+            //                rarity = 5
+            //            };
 
-            //SavePokeBloobs();
-            if (SoulCompendiumManager.Instance != null && SoulCompendiumManager.Instance.IsInitialized)
-            {
+            //            item = BuildSoul(s);
 
-
-                //SoulCompendiumManager.Instance.UpdateSinglePetUI("Bulbasaur");
-            }
+            //            if (item != null)
+            //            {
+            //                PetManager.Instance.AddPet(item);
+            //            }
+            //            spet = true;
+            //        }
+            //    }
+            //}
         }
 
         //Embedded Resources
@@ -322,91 +254,96 @@ namespace PokeBloobs
             xpNew = Mathf.Clamp(xpNew, 0.025f, 0.10f);
             //xpNew = Math.Min(xpNew, 10);
 
-            switch (s.skillName)
+            bool bonus = true;
+
+            if (bonus)
             {
-                case "Hitpoints":
-                    item.hitPointsBonusXp = xpNew;
-                    item.defenceBonusXP = xpNew / 2; break;
-                case "Attack":
-                    item.attackBonusXP = xpNew;
-                    item.accuracy = xpNew / 5;
-                    item.critalChance = xpNew / 5; break;
-                case "Strength":
-                    item.strengthBonusXp = xpNew;
-                    item.meleeSoulDamage = xpNew / 2;
-                    item.accuracy = xpNew / 5; break;
-                case "Defense":
-                    item.defenceBonusXP = xpNew;
-                    item.hitPointsBonusXp = xpNew / 2; break;
-                case "Ranged":
-                    item.rangeBonusXP = xpNew;
-                    item.rangedSoulDamage = xpNew / 2;
-                    item.rangeAccuracy = xpNew / 5; break;
-                case "Magic":
-                    item.magicBonusXP = xpNew;
-                    item.magicSoulDamage = xpNew / 2;
-                    item.magicAccuracy = xpNew / 5; break;
-                case "Devotion":
-                    item.devotionBonusXp = xpNew;
-                    item.beastMateryBonusXp = xpNew / 2; break;
-                case "Beastmastery":
-                    item.beastMateryBonusXp = xpNew;
-                    item.attackBonusXP = xpNew / 5;
-                    item.defenceBonusXP = xpNew / 5;
-                    item.strengthBonusXp = xpNew / 5;
-                    item.rangeBonusXP = xpNew / 5;
-                    item.magicBonusXP = xpNew / 5; break;
-                case "Dexterity":
-                    item.dexterityBonusXp = xpNew;
-                    item.thievingBonusXp = xpNew / 3; break;
-                case "Foraging":
-                    item.foragingBonusXp = xpNew;
-                    item.herbologyBonusXp = xpNew / 3; break;
-                case "Herblore":
-                    item.herbologyBonusXp = xpNew;
-                    item.foragingBonusXp = xpNew / 2; break;
-                case "Crafting":
-                    item.craftingBonusXp = xpNew;
-                    item.bowCraftingBonusXp = xpNew; break;
-                case "Bowcrafting":
-                    item.bowCraftingBonusXp = xpNew;
-                    item.craftingBonusXp = xpNew; break;
-                case "Imbuing":
-                    item.imbuingBonusXp = xpNew;
-                    item.magicBonusXP = xpNew / 5; break;
-                case "Thieving":
-                    item.thievingBonusXp = xpNew;
-                    item.dexterityBonusXp = xpNew / 5; break;
-                case "Soulbinding":
-                    item.soulBindingBonusXp = xpNew * 2; break;
-                case "Mining":
-                    item.miningBonusXp = xpNew;
-                    item.smithingBonusXp = xpNew; break;
-                case "Smithing":
-                    item.smithingBonusXp = xpNew;
-                    item.miningBonusXp = xpNew; break;
-                case "Fishing":
-                    item.fishingBonusXp = xpNew;
-                    item.cookingBonusXp = xpNew / 5; break;
-                case "Cooking":
-                    item.cookingBonusXp = xpNew;
-                    item.fishingBonusXp = xpNew / 5; break;
-                case "Woodcutting":
-                    item.woodcuttingBonusXp = xpNew;
-                    item.firemakingBonusXp = xpNew / 2; break;
-                case "Firemaking":
-                    item.firemakingBonusXp = xpNew;
-                    item.woodcuttingBonusXp = xpNew / 2; break;
-                case "Tracking":
-                    item.trackingBonusXp = xpNew;
-                    item.doubleTrackingLoot = multiplier / 2; break;
-                case "Homesteading":
-                    item.homesteadingBonusXp = xpNew;
-                    item.woodcuttingBonusXp = xpNew / 3;
-                    item.miningBonusXp = xpNew / 3;
-                    item.fishingBonusXp = xpNew / 3;
-                    item.foragingBonusXp = xpNew / 3;
-                    break;
+                switch (s.skillName)
+                {
+                    case "Hitpoints":
+                        item.hitPointsBonusXp = xpNew;
+                        item.defenceBonusXP = xpNew / 2; break;
+                    case "Attack":
+                        item.attackBonusXP = xpNew;
+                        item.accuracy = xpNew / 5;
+                        item.critalChance = xpNew / 5; break;
+                    case "Strength":
+                        item.strengthBonusXp = xpNew;
+                        item.meleeSoulDamage = xpNew / 2;
+                        item.accuracy = xpNew / 5; break;
+                    case "Defense":
+                        item.defenceBonusXP = xpNew;
+                        item.hitPointsBonusXp = xpNew / 2; break;
+                    case "Ranged":
+                        item.rangeBonusXP = xpNew;
+                        item.rangedSoulDamage = xpNew / 2;
+                        item.rangeAccuracy = xpNew / 5; break;
+                    case "Magic":
+                        item.magicBonusXP = xpNew;
+                        item.magicSoulDamage = xpNew / 2;
+                        item.magicAccuracy = xpNew / 5; break;
+                    case "Devotion":
+                        item.devotionBonusXp = xpNew;
+                        item.beastMateryBonusXp = xpNew / 2; break;
+                    case "Beastmastery":
+                        item.beastMateryBonusXp = xpNew;
+                        item.attackBonusXP = xpNew / 5;
+                        item.defenceBonusXP = xpNew / 5;
+                        item.strengthBonusXp = xpNew / 5;
+                        item.rangeBonusXP = xpNew / 5;
+                        item.magicBonusXP = xpNew / 5; break;
+                    case "Dexterity":
+                        item.dexterityBonusXp = xpNew;
+                        item.thievingBonusXp = xpNew / 3; break;
+                    case "Foraging":
+                        item.foragingBonusXp = xpNew;
+                        item.herbologyBonusXp = xpNew / 3; break;
+                    case "Herblore":
+                        item.herbologyBonusXp = xpNew;
+                        item.foragingBonusXp = xpNew / 2; break;
+                    case "Crafting":
+                        item.craftingBonusXp = xpNew;
+                        item.bowCraftingBonusXp = xpNew; break;
+                    case "Bowcrafting":
+                        item.bowCraftingBonusXp = xpNew;
+                        item.craftingBonusXp = xpNew; break;
+                    case "Imbuing":
+                        item.imbuingBonusXp = xpNew;
+                        item.magicBonusXP = xpNew / 5; break;
+                    case "Thieving":
+                        item.thievingBonusXp = xpNew;
+                        item.dexterityBonusXp = xpNew / 5; break;
+                    case "Soulbinding":
+                        item.soulBindingBonusXp = xpNew * 2; break;
+                    case "Mining":
+                        item.miningBonusXp = xpNew;
+                        item.smithingBonusXp = xpNew; break;
+                    case "Smithing":
+                        item.smithingBonusXp = xpNew;
+                        item.miningBonusXp = xpNew; break;
+                    case "Fishing":
+                        item.fishingBonusXp = xpNew;
+                        item.cookingBonusXp = xpNew / 5; break;
+                    case "Cooking":
+                        item.cookingBonusXp = xpNew;
+                        item.fishingBonusXp = xpNew / 5; break;
+                    case "Woodcutting":
+                        item.woodcuttingBonusXp = xpNew;
+                        item.firemakingBonusXp = xpNew / 2; break;
+                    case "Firemaking":
+                        item.firemakingBonusXp = xpNew;
+                        item.woodcuttingBonusXp = xpNew / 2; break;
+                    case "Tracking":
+                        item.trackingBonusXp = xpNew;
+                        item.doubleTrackingLoot = multiplier / 2; break;
+                    case "Homesteading":
+                        item.homesteadingBonusXp = xpNew;
+                        item.woodcuttingBonusXp = xpNew / 3;
+                        item.miningBonusXp = xpNew / 3;
+                        item.fishingBonusXp = xpNew / 3;
+                        item.foragingBonusXp = xpNew / 3;
+                        break;
+                }
             }
 
             //item.information = "";
@@ -474,7 +411,7 @@ namespace PokeBloobs
         {
             var a = Assembly.GetExecutingAssembly();
 
-            string manifestName = a.GetManifestResourceNames().FirstOrDefault(n => n.IndexOf("Sprites", StringComparison.OrdinalIgnoreCase) >= 0 && n.IndexOf(petName, StringComparison.OrdinalIgnoreCase) >= 0 && n.EndsWith(".gif", StringComparison.OrdinalIgnoreCase));
+            string manifestName = a.GetManifestResourceNames().FirstOrDefault(n => n.IndexOf("Gen1", StringComparison.OrdinalIgnoreCase) >= 0 && n.IndexOf(petName, StringComparison.OrdinalIgnoreCase) >= 0 && n.EndsWith(".gif", StringComparison.OrdinalIgnoreCase));
 
             if (string.IsNullOrEmpty(manifestName)) return null;
 
@@ -562,13 +499,13 @@ namespace PokeBloobs
 
                 if (petObj == null)
                 {
-                    Debug.Log($"[PokeBloobs] petObj is null");
+                    //Debug.Log($"[PokeBloobs] petObj is null");
                     petObj = GameObject.Find(petItem.itemName) ?? GameObject.Find(petItem.itemName + "(Clone)");
                 }
 
                 if (petObj != null)
                 {
-                    Debug.Log($"[PokeBloobs] petObj loaded");
+                    //Debug.Log($"[PokeBloobs] petObj loaded");
                     var anim = petObj.GetComponent<PokeBloobs.DynamicPetAnimator>() ?? petObj.AddComponent<PokeBloobs.DynamicPetAnimator>();
                     anim.frames = frames;
 
@@ -624,20 +561,40 @@ namespace PokeBloobs
         {
             List<string> requirements = new List<string>();
 
-            foreach (var entry in evolutionChains)
-            {
-                string[] chain = entry.Value;
-                int targetIndex = Array.IndexOf(chain, petName);
+            //foreach (var entry in DictionaryEvos.evolutionChains)
+            //{
+            //    string[] chain = entry.Value;
+            //    int targetIndex = Array.IndexOf(chain, petName);
 
-                if (targetIndex > 0)
+            //    if (targetIndex > 0)
+            //    {
+            //        for (int i = 0; i < targetIndex; i++)
+            //        {
+            //            requirements.Add(chain[i]);
+            //        }
+            //        return requirements;
+            //    }
+            //}
+            //return requirements;
+
+            foreach (var entry in DictionaryEvos.evolutionChains)
+            {
+                // entry.Value is a List<string[]>
+                foreach (string[] chain in entry.Value)
                 {
-                    for (int i = 0; i < targetIndex; i++)
+                    int targetIndex = Array.IndexOf(chain, petName);
+
+                    if (targetIndex > 0)
                     {
-                        requirements.Add(chain[i]);
+                        for (int i = 0; i < targetIndex; i++)
+                        {
+                            requirements.Add(chain[i]);
+                        }
+                        return requirements;
                     }
-                    return requirements;
                 }
             }
+
             return requirements;
         }
 
@@ -649,51 +606,53 @@ namespace PokeBloobs
             {
                 SoulCompendiumManager.Instance.UpdateSinglePetUI(soulName);
             }
+
+
         }
+
+        //Old Code for reference
+        //[HarmonyPatch(typeof(HitPointsSkill), "DropPets")]
+        //public class Patch_HitPointsSkill
+        //{
+        //    static void Postfix(ref List<Item> ___petDrops)
+        //    {
+        //        if (PokeBloobs.patchSkillrun.ContainsKey(1) && PokeBloobs.patchSkillrun[1])
+        //        {
+        //            return;
+        //        }
+
+        //        if (_cachedHitpointsSouls == null)
+        //        {
+        //            _cachedHitpointsSouls = new List<Item>();
+        //            var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
+        //                .Where(n => n.skillName.Contains("Hitpoints"));
+
+        //            foreach (var soul in wcSouls)
+        //            {
+        //                Item c = PokeBloobs.BuildSoul(soul);
+        //                c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
+        //                _cachedHitpointsSouls.Add(c);
+        //            }
+        //        }
+
+        //        var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
+
+        //        foreach (var soulItem in _cachedHitpointsSouls)
+        //        {
+        //            if (!existingNames.Contains(soulItem.name))
+        //            {
+        //                Debug.Log($"Hitpoints soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
+        //                PokeBloobs.UpdateSinglePet(soulItem.name);
+        //                ___petDrops.Add(soulItem);
+        //            }
+        //        }
+
+
+
+        //        Debug.Log($"Hitpoints soul drop patches have been applied");
+        //        PokeBloobs.patchSkillrun[1] = true;
+        //    }
+        //}
+        //END OLD CODE FOR REFERENCE
     }
-
-    //Old Code for reference
-    //[HarmonyPatch(typeof(HitPointsSkill), "DropPets")]
-    //public class Patch_HitPointsSkill
-    //{
-    //    static void Postfix(ref List<Item> ___petDrops)
-    //    {
-    //        if (PokeBloobs.patchSkillrun.ContainsKey(1) && PokeBloobs.patchSkillrun[1])
-    //        {
-    //            return;
-    //        }
-
-    //        if (_cachedHitpointsSouls == null)
-    //        {
-    //            _cachedHitpointsSouls = new List<Item>();
-    //            var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
-    //                .Where(n => n.skillName.Contains("Hitpoints"));
-
-    //            foreach (var soul in wcSouls)
-    //            {
-    //                Item c = PokeBloobs.BuildSoul(soul);
-    //                c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-    //                _cachedHitpointsSouls.Add(c);
-    //            }
-    //        }
-
-    //        var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
-
-    //        foreach (var soulItem in _cachedHitpointsSouls)
-    //        {
-    //            if (!existingNames.Contains(soulItem.name))
-    //            {
-    //                Debug.Log($"Hitpoints soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
-    //                PokeBloobs.UpdateSinglePet(soulItem.name);
-    //                ___petDrops.Add(soulItem);
-    //            }
-    //        }
-
-            
-
-    //        Debug.Log($"Hitpoints soul drop patches have been applied");
-    //        PokeBloobs.patchSkillrun[1] = true;
-    //    }
-    //}
-    //END OLD CODE FOR REFERENCE
 }
