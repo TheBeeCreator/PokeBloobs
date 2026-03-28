@@ -21,8 +21,8 @@ namespace PokeBloobs.Patches
 
                 if (customSoul != null)
                 {
-                    __result = PokeBloobs.GetSprite(customSoul.soulName);
-
+                    var sprite = PokeBloobs.GetSprite(customSoul.soulName);
+                    __result = ResizeSprite(sprite, 2f);
                     return false;
                 }
                 return true;
@@ -76,6 +76,18 @@ namespace PokeBloobs.Patches
                     //Debug.Log($"[PokeBloobs] Added {soul.soulName} to Soul Compendium.");
                 }
             }
+        }
+
+        private static Sprite ResizeSprite(Sprite original, float scale)
+        {
+            if (original == null) return null;
+
+            return Sprite.Create(
+                original.texture,
+                original.rect,
+                original.pivot,
+                original.pixelsPerUnit / scale
+            );
         }
     }
 }

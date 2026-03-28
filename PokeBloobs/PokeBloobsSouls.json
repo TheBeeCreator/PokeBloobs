@@ -3,1512 +3,1912 @@
     "soulName": "Bulbasaur",
     "soulCategory": "event souls",
     "skillName": "Woodcutting",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Ivysaur",
     "soulCategory": "event souls",
     "skillName": "Woodcutting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Venusaur",
     "soulCategory": "event souls",
     "skillName": "Woodcutting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Charmander",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Charmeleon",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Charizard",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Fire",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Squirtle",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Wartortle",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Blastoise",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Caterpie",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Metapod",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Butterfree",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Weedle",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Kakuna",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Beedrill",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Pidgey",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Pidgeotto",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Pidgeot",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Rattata",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Raticate",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Spearow",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Fearow",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Ekans",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Arbok",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Pikachu",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Raichu",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Sandshrew",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Sandslash",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "NidoranF",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Nidorina",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Nidoqueen",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "NidoranM",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Nidorino",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Nidoking",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Clefairy",
     "soulCategory": "event souls",
     "skillName": "Devotion",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fairy"
   },
   {
     "soulName": "Clefable",
     "soulCategory": "event souls",
     "skillName": "Devotion",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fairy"
   },
   {
     "soulName": "Vulpix",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Ninetales",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Jigglypuff",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fairy"
   },
   {
     "soulName": "Wigglytuff",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fairy"
   },
   {
     "soulName": "Zubat",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Golbat",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Oddish",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Gloom",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Vileplume",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Paras",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Grass"
   },
   {
     "soulName": "Parasect",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Grass"
   },
   {
     "soulName": "Venonat",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Venomoth",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Diglett",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Dugtrio",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Meowth",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Persian",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Psyduck",
     "soulCategory": "event souls",
     "skillName": "Soulbinding",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Golduck",
     "soulCategory": "event souls",
     "skillName": "Soulbinding",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Mankey",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Primeape",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Growlithe",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Arcanine",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Poliwag",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Poliwhirl",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Poliwrath",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Abra",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Kadabra",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Alakazam",
     "soulCategory": "event souls",
     "skillName": "Imbuing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Machop",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Machoke",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Machamp",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Bellsprout",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Weepinbell",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Victreebel",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Tentacool",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Tentacruel",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Geodude",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Graveler",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Golem",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Ponyta",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Rapidash",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Slowpoke",
     "soulCategory": "event souls",
     "skillName": "Tracking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Slowbro",
     "soulCategory": "event souls",
     "skillName": "Tracking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Magnemite",
     "soulCategory": "event souls",
     "skillName": "Smithing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric",
+    "SecondaryType": "Steel"
   },
   {
     "soulName": "Magneton",
     "soulCategory": "event souls",
     "skillName": "Smithing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Electric",
+    "SecondaryType": "Steel"
   },
   {
     "soulName": "Farfetchd",
     "soulCategory": "event souls",
     "skillName": "Woodcutting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Flying"
   },
   {
     "soulName": "Doduo",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Dodrio",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Flying",
+    "SecondaryType": "Normal"
   },
   {
     "soulName": "Seel",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Dewgong",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Ice"
   },
   {
     "soulName": "Grimer",
     "soulCategory": "event souls",
     "skillName": "Cooking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Muk",
     "soulCategory": "event souls",
     "skillName": "Cooking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Shellder",
     "soulCategory": "event souls",
     "skillName": "Cooking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Cloyster",
     "soulCategory": "event souls",
     "skillName": "Cooking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Ice"
   },
   {
     "soulName": "Gastly",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ghost",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Haunter",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ghost",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Gengar",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Ghost",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Onix",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Drowzee",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Hypno",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Krabby",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Kingler",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Voltorb",
     "soulCategory": "event souls",
     "skillName": "Beastmastery",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Electrode",
     "soulCategory": "event souls",
     "skillName": "Beastmastery",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Exeggcute",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Exeggutor",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Cubone",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Marowak",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Hitmonlee",
     "soulCategory": "event souls",
     "skillName": "Bowcrafting",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Hitmonchan",
     "soulCategory": "event souls",
     "skillName": "Bowcrafting",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Fighting"
   },
   {
     "soulName": "Lickitung",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Koffing",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Weezing",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Poison"
   },
   {
     "soulName": "Rhyhorn",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Rhydon",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ground"
   },
   {
     "soulName": "Chansey",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Tangela",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass"
   },
   {
     "soulName": "Kangaskhan",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Horsea",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Seadra",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Goldeen",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Seaking",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Staryu",
     "soulCategory": "event souls",
     "skillName": "Herblore",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Starmie",
     "soulCategory": "event souls",
     "skillName": "Herblore",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "MrMime",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Scyther",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Jynx",
     "soulCategory": "event souls",
     "skillName": "Devotion",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Electabuzz",
     "soulCategory": "event souls",
     "skillName": "Tracking",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Magmar",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Pinsir",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Bug"
   },
   {
     "soulName": "Tauros",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Magikarp",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Gyarados",
     "soulCategory": "event souls",
     "skillName": "Attack",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Water",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Lapras",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water",
+    "SecondaryType": "Ice"
   },
   {
     "soulName": "Ditto",
     "soulCategory": "event souls",
     "skillName": "Soulbinding",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Eevee",
     "soulCategory": "event souls",
     "skillName": "Hitpoints",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Vaporeon",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water"
   },
   {
     "soulName": "Jolteon",
     "soulCategory": "event souls",
     "skillName": "Dexterity",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Electric"
   },
   {
     "soulName": "Flareon",
     "soulCategory": "event souls",
     "skillName": "Smithing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Fire"
   },
   {
     "soulName": "Porygon",
     "soulCategory": "event souls",
     "skillName": "Smithing",
-    "rarity": 3
+    "rarity": 3,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Omanyte",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Rock"
   },
   {
     "soulName": "Omastar",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock"
   },
   {
     "soulName": "Kabuto",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Rock"
   },
   {
     "soulName": "Kabutops",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock"
   },
   {
     "soulName": "Aerodactyl",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock"
   },
   {
     "soulName": "Snorlax",
     "soulCategory": "event souls",
     "skillName": "Cooking",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Articuno",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Zapdos",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Electric",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Moltres",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Fire",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Dratini",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Dragon"
   },
   {
     "soulName": "Dragonair",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Dragon"
   },
   {
     "soulName": "Dragonite",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Dragon",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Mewtwo",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "Mew",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Psychic"
   },
   {
     "soulName": "BloobsDev",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 5
+    "rarity": 5,
+    "PrimaryType": "Normal"
   },
   {
     "soulName": "Chikorita",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Bayleef",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Meganium",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Cyndaquil",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Quilava",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Typhlosion",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Totodile",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Croconaw",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Feraligatr",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Sentret",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Furret",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Hoothoot",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Noctowl",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Ledyba",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Ledian",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Spinarak",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Ariados",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Crobat",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Poison",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Chinchou",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Electric"
   },
   {
     "soulName": "Lanturn",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Electric"
   },
   {
     "soulName": "Pichu",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Cleffa",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fairy",
+    "SecondaryType": null
   },
   {
     "soulName": "Igglybuff",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": "Fairy"
   },
   {
     "soulName": "Togepi",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fairy",
+    "SecondaryType": null
   },
   {
     "soulName": "Togetic",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fairy",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Natu",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Psychic",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Xatu",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Mareep",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Flaaffy",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Ampharos",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Bellossom",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Marill",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Fairy"
   },
   {
     "soulName": "Azumarill",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Fairy"
   },
   {
     "soulName": "Sudowoodo",
     "soulCategory": "event souls",
     "skillName": "Woodcutting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Rock",
+    "SecondaryType": null
   },
   {
     "soulName": "Politoed",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Hoppip",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Skiploom",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Jumpluff",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Grass",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Aipom",
     "soulCategory": "event souls",
     "skillName": "Agility",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Sunkern",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Sunflora",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Grass",
+    "SecondaryType": null
   },
   {
     "soulName": "Yanma",
     "soulCategory": "event souls",
     "skillName": "Agility",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Wooper",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Quagsire",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Espeon",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
   },
   {
     "soulName": "Umbreon",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Dark",
+    "SecondaryType": null
   },
   {
     "soulName": "Murkrow",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Dark",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Slowking",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Misdreavus",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ghost",
+    "SecondaryType": null
   },
   {
     "soulName": "Unown",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown_A",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
   },
   {
     "soulName": "Wobbuffet",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
   },
   {
     "soulName": "Girafarig",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Pineco",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Bug",
+    "SecondaryType": null
   },
   {
     "soulName": "Forretress",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Steel"
   },
   {
     "soulName": "Dunsparce",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Gligar",
     "soulCategory": "event souls",
     "skillName": "Agility",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Steelix",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Steel",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Snubbull",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fairy",
+    "SecondaryType": null
   },
   {
     "soulName": "Granbull",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fairy",
+    "SecondaryType": null
   },
   {
     "soulName": "Qwilfish",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Poison"
   },
   {
     "soulName": "Scizor",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Steel"
   },
   {
     "soulName": "Shuckle",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Rock"
   },
   {
     "soulName": "Heracross",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Bug",
+    "SecondaryType": "Fighting"
   },
   {
     "soulName": "Sneasel",
     "soulCategory": "event souls",
     "skillName": "Thieving",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Dark",
+    "SecondaryType": "Ice"
   },
   {
     "soulName": "Teddiursa",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Ursaring",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Slugma",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Magcargo",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fire",
+    "SecondaryType": "Rock"
   },
   {
     "soulName": "Swinub",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Piloswine",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Corsola",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": "Rock"
   },
   {
     "soulName": "Remoraid",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Octillery",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Delibird",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Mantine",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Water",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Skarmory",
     "soulCategory": "event souls",
     "skillName": "Defense",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Steel",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Houndour",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Dark",
+    "SecondaryType": "Fire"
   },
   {
     "soulName": "Houndoom",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Dark",
+    "SecondaryType": "Fire"
   },
   {
     "soulName": "Kingdra",
     "soulCategory": "event souls",
     "skillName": "Fishing",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Water",
+    "SecondaryType": "Dragon"
   },
   {
     "soulName": "Phanpy",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ground",
+    "SecondaryType": null
   },
   {
     "soulName": "Donphan",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Ground",
+    "SecondaryType": null
   },
   {
     "soulName": "Porygon2",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Stantler",
     "soulCategory": "event souls",
     "skillName": "Foraging",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Smeargle",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Tyrogue",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fighting",
+    "SecondaryType": null
   },
   {
     "soulName": "Hitmontop",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Fighting",
+    "SecondaryType": null
   },
   {
     "soulName": "Smoochum",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Ice",
+    "SecondaryType": "Psychic"
   },
   {
     "soulName": "Elekid",
     "soulCategory": "event souls",
     "skillName": "Crafting",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Magby",
     "soulCategory": "event souls",
     "skillName": "Firemaking",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Miltank",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Blissey",
     "soulCategory": "event souls",
     "skillName": "Support",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Normal",
+    "SecondaryType": null
   },
   {
     "soulName": "Raikou",
     "soulCategory": "event souls",
     "skillName": "Ranged",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Electric",
+    "SecondaryType": null
   },
   {
     "soulName": "Entei",
     "soulCategory": "event souls",
     "skillName": "Strength",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Fire",
+    "SecondaryType": null
   },
   {
     "soulName": "Suicune",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Water",
+    "SecondaryType": null
   },
   {
     "soulName": "Larvitar",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 0
+    "rarity": 0,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Pupitar",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 1
+    "rarity": 1,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Ground"
   },
   {
     "soulName": "Tyranitar",
     "soulCategory": "event souls",
     "skillName": "Mining",
-    "rarity": 2
+    "rarity": 2,
+    "PrimaryType": "Rock",
+    "SecondaryType": "Dark"
   },
   {
     "soulName": "Lugia",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Psychic",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Ho-Oh",
     "soulCategory": "event souls",
     "skillName": "Magic",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Fire",
+    "SecondaryType": "Flying"
   },
   {
     "soulName": "Celebi",
     "soulCategory": "event souls",
     "skillName": "Homesteading",
-    "rarity": 4
+    "rarity": 4,
+    "PrimaryType": "Psychic",
+    "SecondaryType": "Grass"
   }
 ]

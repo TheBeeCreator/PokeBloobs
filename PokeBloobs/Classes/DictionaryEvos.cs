@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokeBloobs
+namespace PokeBloobs.Classes
 {
     internal class DictionaryEvos
     {
@@ -57,7 +57,6 @@ namespace PokeBloobs
             { "Voltorb", new List<string[]> { new[] { "Voltorb", "Electrode" } } },
             { "Exeggcute", new List<string[]> { new[] { "Exeggcute", "Exeggutor" } } },
             { "Cubone", new List<string[]> { new[] { "Cubone", "Marowak" } } },
-            { "Tyrogue", new List<string[]> { new[] { "Tyrogue", "Hitmonlee" }, new[] { "Tyrogue", "Hitmonchan" }, new[] { "Tyrogue", "Hitmontop" } } },
             { "Lickitung", new List<string[]> { new[] { "Lickitung", "Lickilicky" } } },
             { "Koffing", new List<string[]> { new[] { "Koffing", "Weezing" } } },
             { "Rhyhorn", new List<string[]> { new[] { "Rhyhorn", "Rhydon", "Rhyperior" } } },
@@ -155,7 +154,6 @@ namespace PokeBloobs
             { "Nincada", new List<string[]> { new[] { "Nincada", "Ninjask", "Shedinja" } } },
             { "Whismur", new List<string[]> { new[] { "Whismur", "Loudred", "Exploud" } } },
             { "Makuhita", new List<string[]> { new[] { "Makuhita", "Hariyama" } } },
-            { "Azurill", new List<string[]> { new[] { "Azurill", "Marill", "Azumarill" } } },
             { "Geodude (Hoenn)", new List<string[]> { new[] { "Geodude", "Graveler", "Golem" } } },
             { "Nosepass", new List<string[]> { new[] { "Nosepass", "Probopass" } } },
             { "Skitty", new List<string[]> { new[] { "Skitty", "Delcatty" } } },
@@ -372,10 +370,7 @@ namespace PokeBloobs
             { "Wynaut", new List<string[]> { new[] { "Wynaut", "Wobbuffet" } } },
 
             // Gen 5 Baby Pokémon
-            { "Munchlax", new List<string[]> { new[] { "Munchlax", "Snorlax" } } },
-
-            // Gen 7 Baby Pokémon
-            { "Igglybuff", new List<string[]> { new[] { "Igglybuff", "Jigglypuff", "Wigglytuff" } } },
+            { "Munchlax", new List<string[]> { new[] { "Munchlax", "Snorlax" } } }
         };
     }
 }

@@ -1,16 +1,17 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using Newtonsoft.Json;
-using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using static PokeBloobs.PokeBloobs;
 using ScriptableObject = UnityEngine.ScriptableObject;
+using PokeBloobs.Classes;
 
 namespace PokeBloobs
 {
@@ -35,6 +36,7 @@ namespace PokeBloobs
             public string soulCategory;
             public string skillName;
             public int rarity;
+            public string PrimaryType;
         }
 
         public class PetDefinition
@@ -81,13 +83,9 @@ namespace PokeBloobs
         };
 
         //Sprite cache
-        private static Dictionary<string, Sprite> _spriteCache = new Dictionary<string, Sprite>();
-
-        /* OLD
-        //Caches
-        //public static List<Item> _cachedHitpointsSouls;
-        //public static List<Item> _cachedAttackSouls;
-        */
+        private static readonly Dictionary<string, Sprite> _spriteCache = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
+        private static readonly Dictionary<string, Sprite[]> _animationCache = new Dictionary<string, Sprite[]>(StringComparer.OrdinalIgnoreCase);
+        private static readonly Dictionary<string, Sprite> _firstFrameCache = new Dictionary<string, Sprite>(StringComparer.OrdinalIgnoreCase);
 
         public static Item mon = ScriptableObject.CreateInstance<Item>();
 
@@ -107,100 +105,85 @@ namespace PokeBloobs
 
         private void Awake()
         {
-            //Plugin startup logic
-            Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is installed and starting");
+            LogStartup();
 
-            var dispatcherObj = new GameObject("PokeBloobs_Dispatcher");
-            dispatcherObj.AddComponent<TaskDispatcher>();
-
-            var assembly = Assembly.GetExecutingAssembly();
-            foreach (var name in assembly.GetManifestResourceNames())
-            {
-                Logger.LogInfo("Found resources: " + name);
-            }
-
-            //Load our resources
-            string JSONContent = GetJsonFromResources("PokeBloobs.PokeBloobsSouls.json");
-
-            if (!string.IsNullOrEmpty(JSONContent))
-            {
-                SoulsDatabase.LoadedSouls = JsonConvert.DeserializeObject<List<SoulsData>>(JSONContent);
-                PokeBloobs.PopulateRarityArrays();
-                Logger.LogInfo($"Successfully loaded {SoulsDatabase.LoadedSouls.Count} souls from JSON.");
-            }
-            else
-            {
-                Logger.LogError("Failed to load PokeBloobSouls.json from resources!");
-            }
-
-            var harmony = new Harmony("com.SKOM.PokeBloobs");
-
-            harmony.PatchAll();
-            //OLD CODE
-            //Harmony.CreateAndPatchAll(typeof(Patch_ItemRegistry));
-            //Harmony.CreateAndPatchAll(typeof(Patch_AddCustomPet));
-
-            var patchedMethods = Harmony.GetAllPatchedMethods();
-            //Make sure that harmory actually patched
-            foreach (var method in patchedMethods)
-            {
-                Logger.LogInfo("Patched method: " + method.Module + " : " + method.Name);
-            }
-
-            Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+            if (!EnsureAssetZipReady())
+                return;
+            
+            CreateDispatcher();
+            
+            LogEmbeddedResources();
+            
+            SoulLoader.Load();
+            
+            ApplyHarmonyPatches();
+            
+            LogPluginLoaded();
         }
 
         private void Update()
         {
-            ////Special checks
-            //if (PetManager.Instance != null)
-            //{
 
-            //    if (!PetManager.Instance.HasPet("BloobsDev"))
-            //    {
-            //        bool t = PetManager.Instance.HasPet("BloobsDev");
-            //        Debug.Log($"{t}");
-            //        Debug.Log("Dev Pet");
-            //        var item = ScriptableObject.CreateInstance<Item>();
-            //        ulong cur = SteamClient.SteamId;
-            //        Debug.Log($"{cur}");
+        }
 
-            //        if (special.ContainsKey(cur))
-            //        {
-            //            string name = special[cur];
-            //            SoulsData s = new SoulsData
-            //            {
-            //                soulName = "BloobsDev",
-            //                soulCategory = "event souls",
-            //                skillName = "Homesteading",
-            //                rarity = 5
-            //            };
+        //Awake helpers
+        private void LogStartup()
+        {
+            Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} {MyPluginInfo.PLUGIN_VERSION} is installed and starting");
+        }
 
-            //            item = BuildSoul(s);
+        private bool EnsureAssetZipReady()
+        {
+            if (!ZipAssetLoader.ZipExists())
+            {
+                Debug.LogError("[PokeBloobs] Missing PokeBloobs.assets.zip next to the mod DLL.");
+                return false ;
+            }
 
-            //            if (item != null)
-            //            {
-            //                PetManager.Instance.AddPet(item);
-            //            }
-            //            spet = true;
-            //        }
-            //    }
-            //}
+            global::PokeBloobs.Classes.ZipAssetLoader.BuildIndex();
+            Debug.Log("[PokeBloobs] Asset zip found.");
+            return true ;
+        }
+
+        private void CreateDispatcher()
+        {
+            var dispatcherObj = new GameObject("PokeBloobs_Dispatcher");
+            dispatcherObj.AddComponent<TaskDispatcher>();
+        }
+
+        private void LogEmbeddedResources()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+
+            foreach (var resourceName in assembly.GetManifestResourceNames())
+            {
+                Logger.LogInfo("Found resources: " + resourceName);
+            }
+        }
+
+        private void ApplyHarmonyPatches()
+        {
+            var harmony = new Harmony("com.SKOM.PokeBloobs");
+            harmony.PatchAll();
+
+            foreach (var method in Harmony.GetAllPatchedMethods())
+            {
+                Logger.LogInfo("Patched method: " + method.Module + " : " + method.Name);
+            }
+        }
+
+        private void LogPluginLoaded()
+        {
+            Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
         }
 
         //Embedded Resources
         public string GetJsonFromResources(string resourceName)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-
-            //More checks cause magic unicorns
-            string manifest = assembly.GetManifestResourceNames().FirstOrDefault(n => n.EndsWith(resourceName));
-            if (manifest == null) return null;
-
-
-            using (Stream stream = assembly.GetManifestResourceStream(manifest))
+            using (Stream stream = global::PokeBloobs.Classes.ZipAssetLoader.OpenAssetStream("Data", resourceName, "json"))
             {
                 if (stream == null) return null;
+
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     return reader.ReadToEnd();
@@ -208,234 +191,148 @@ namespace PokeBloobs
             }
         }
 
-        //Souls data builder
-        public static Item BuildSoul(SoulsData s)
-        {
-            if (s == null) return null;
-
-            //Set default XP bonus
-            float xpDefaultxp = 0.025f; //2.5%
-            float xpNew = 0f;
-            var item = ScriptableObject.CreateInstance<Item>();
-            item.name = s.soulName;
-            item.itemName = s.soulName;
-            item.information = "pet";
-            int multiplier = s.rarity switch
-            {
-                1 => 2, //5%
-                2 => 3, //7.5%
-                3 => 4, //10%
-                4 => 4, //10%
-                5 => 10, //25%
-                _ => 1
-            };
-
-            xpNew = xpDefaultxp * multiplier;
-
-            float multiplierSB = PlayerDataManager.Instance.GetSoulBindingPrestigeLevel();
-            //Debug.LogError($"[PokeBloobs] {multiplierSB}!");
-            switch (multiplierSB)
-            {
-                case 0:
-                    break;
-                case 1:
-                    xpNew = xpNew * 1.3f; break;
-                case 2:
-                    xpNew = xpNew * 1.5f; break;
-                case 3:
-                    xpNew = xpNew * 1.7f; break;
-                case 4:
-                    xpNew = xpNew * 1.9f; break;
-                case >= 5:
-                    xpNew = xpNew * 2.0f; break;
-            }
-
-            //Enforce a cap on possible bonus
-            xpNew = Mathf.Clamp(xpNew, 0.025f, 0.10f);
-            //xpNew = Math.Min(xpNew, 10);
-
-            bool bonus = true;
-
-            if (bonus)
-            {
-                switch (s.skillName)
-                {
-                    case "Hitpoints":
-                        item.hitPointsBonusXp = xpNew;
-                        item.defenceBonusXP = xpNew / 2; break;
-                    case "Attack":
-                        item.attackBonusXP = xpNew;
-                        item.accuracy = xpNew / 5;
-                        item.critalChance = xpNew / 5; break;
-                    case "Strength":
-                        item.strengthBonusXp = xpNew;
-                        item.meleeSoulDamage = xpNew / 2;
-                        item.accuracy = xpNew / 5; break;
-                    case "Defense":
-                        item.defenceBonusXP = xpNew;
-                        item.hitPointsBonusXp = xpNew / 2; break;
-                    case "Ranged":
-                        item.rangeBonusXP = xpNew;
-                        item.rangedSoulDamage = xpNew / 2;
-                        item.rangeAccuracy = xpNew / 5; break;
-                    case "Magic":
-                        item.magicBonusXP = xpNew;
-                        item.magicSoulDamage = xpNew / 2;
-                        item.magicAccuracy = xpNew / 5; break;
-                    case "Devotion":
-                        item.devotionBonusXp = xpNew;
-                        item.beastMateryBonusXp = xpNew / 2; break;
-                    case "Beastmastery":
-                        item.beastMateryBonusXp = xpNew;
-                        item.attackBonusXP = xpNew / 5;
-                        item.defenceBonusXP = xpNew / 5;
-                        item.strengthBonusXp = xpNew / 5;
-                        item.rangeBonusXP = xpNew / 5;
-                        item.magicBonusXP = xpNew / 5; break;
-                    case "Dexterity":
-                        item.dexterityBonusXp = xpNew;
-                        item.thievingBonusXp = xpNew / 3; break;
-                    case "Foraging":
-                        item.foragingBonusXp = xpNew;
-                        item.herbologyBonusXp = xpNew / 3; break;
-                    case "Herblore":
-                        item.herbologyBonusXp = xpNew;
-                        item.foragingBonusXp = xpNew / 2; break;
-                    case "Crafting":
-                        item.craftingBonusXp = xpNew;
-                        item.bowCraftingBonusXp = xpNew; break;
-                    case "Bowcrafting":
-                        item.bowCraftingBonusXp = xpNew;
-                        item.craftingBonusXp = xpNew; break;
-                    case "Imbuing":
-                        item.imbuingBonusXp = xpNew;
-                        item.magicBonusXP = xpNew / 5; break;
-                    case "Thieving":
-                        item.thievingBonusXp = xpNew;
-                        item.dexterityBonusXp = xpNew / 5; break;
-                    case "Soulbinding":
-                        item.soulBindingBonusXp = xpNew * 2; break;
-                    case "Mining":
-                        item.miningBonusXp = xpNew;
-                        item.smithingBonusXp = xpNew; break;
-                    case "Smithing":
-                        item.smithingBonusXp = xpNew;
-                        item.miningBonusXp = xpNew; break;
-                    case "Fishing":
-                        item.fishingBonusXp = xpNew;
-                        item.cookingBonusXp = xpNew / 5; break;
-                    case "Cooking":
-                        item.cookingBonusXp = xpNew;
-                        item.fishingBonusXp = xpNew / 5; break;
-                    case "Woodcutting":
-                        item.woodcuttingBonusXp = xpNew;
-                        item.firemakingBonusXp = xpNew / 2; break;
-                    case "Firemaking":
-                        item.firemakingBonusXp = xpNew;
-                        item.woodcuttingBonusXp = xpNew / 2; break;
-                    case "Tracking":
-                        item.trackingBonusXp = xpNew;
-                        item.doubleTrackingLoot = multiplier / 2; break;
-                    case "Homesteading":
-                        item.homesteadingBonusXp = xpNew;
-                        item.woodcuttingBonusXp = xpNew / 3;
-                        item.miningBonusXp = xpNew / 3;
-                        item.fishingBonusXp = xpNew / 3;
-                        item.foragingBonusXp = xpNew / 3;
-                        break;
-                }
-            }
-
-            //item.information = "";
-
-            Sprite[] animFrames = GetAnimationFrames(s.soulName);
-            if (animFrames != null && animFrames.Length > 0)
-            {
-                item.commonImage = animFrames[0];
-            }
-            else
-            {
-                item.commonImage = GetSprite(s.soulName);
-            }
-
-            return item;
-        }
-
-        //Skill bonus builder
-        public static void BuildBonus(string s)
-        {
-            if (s == null) return;
-        }
+       
 
         //Sprite grabber
         public static Sprite GetSprite(string resourceName)
         {
-            if (_spriteCache.ContainsKey(resourceName)) return _spriteCache[resourceName];
+            if (_spriteCache.TryGetValue(resourceName, out Sprite cached))
+                return cached;
 
-            var anim = GetAnimationFrames(resourceName);
-            if (anim != null && anim.Length > 0)
+            string[] candidateFolders = { "Sprites", "Gen1", "Gen2" };
+
+            foreach (string folder in candidateFolders)
             {
-                _spriteCache[resourceName] = anim[0];
-                return anim[0];
-            }
+                string assetPath = ZipAssetLoader.FindAssetPath(folder, resourceName, "png");
+                if (string.IsNullOrEmpty(assetPath))
+                    continue;
 
-            var assembly = Assembly.GetExecutingAssembly();
-            string manifestName = assembly.GetManifestResourceNames()
-                .FirstOrDefault(n => n.IndexOf("Sprites", StringComparison.OrdinalIgnoreCase) >= 0
-                                    && n.IndexOf(resourceName, StringComparison.OrdinalIgnoreCase) >= 0
-                                    && n.EndsWith(".png", StringComparison.OrdinalIgnoreCase));
+                byte[] bytes = ZipAssetLoader.LoadAssetBytes(assetPath);
+                if (bytes == null)
+                    continue;
 
-            if (!string.IsNullOrEmpty(manifestName))
-            {
-                using (Stream stream = assembly.GetManifestResourceStream(manifestName))
+                Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
+                texture.filterMode = FilterMode.Point;
+
+                if (!ImageConversion.LoadImage(texture, bytes))
                 {
-                    if (stream != null)
-                    {
-                        byte[] ba = new byte[stream.Length];
-                        stream.Read(ba, 0, ba.Length);
-                        Texture2D texture = new Texture2D(2, 2, TextureFormat.RGBA32, false);
-                        if (ImageConversion.LoadImage(texture, ba))
-                        {
-                            texture.filterMode = FilterMode.Point;
-                            Sprite newSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 50f);
-                            _spriteCache[resourceName] = newSprite;
-                            return newSprite;
-                        }
-                    }
+                    UnityEngine.Object.Destroy(texture);
+                    continue;
                 }
+
+                Sprite sprite = Sprite.Create(
+                    texture,
+                    new Rect(0, 0, texture.width, texture.height),
+                    new Vector2(0.5f, 0.5f),
+                    50f
+                );
+
+                sprite.name = resourceName;
+                _spriteCache[resourceName] = sprite;
+                return sprite;
             }
+
+            Debug.LogWarning($"[PokeBloobs] Sprite not found in zip: {resourceName}");
             return null;
         }
 
-        public static Sprite[] GetAnimationFrames(string petName)
+        //First Framer
+        public static Sprite GetFirstAnimationFrame(string petName)
         {
-            var a = Assembly.GetExecutingAssembly();
+            if (_firstFrameCache.TryGetValue(petName, out var cached))
+                return cached;
 
-            string manifestName = a.GetManifestResourceNames().FirstOrDefault(n => n.IndexOf("Gen1", StringComparison.OrdinalIgnoreCase) >= 0 && n.IndexOf(petName, StringComparison.OrdinalIgnoreCase) >= 0 && n.EndsWith(".gif", StringComparison.OrdinalIgnoreCase));
+            string[] folders = { "Gen1", "Gen2" };
 
-            if (string.IsNullOrEmpty(manifestName)) return null;
-
-            List<Sprite> frames = new List<Sprite>();
-
-            using (Stream stream = a.GetManifestResourceStream(manifestName))
+            foreach (string folder in folders)
             {
-                using (System.Drawing.Image gifImage = System.Drawing.Image.FromStream(stream))
+                using (Stream stream = global::PokeBloobs.Classes.ZipAssetLoader.OpenAssetStream(folder, petName, "gif"))
                 {
-                    var d = new System.Drawing.Imaging.FrameDimension(gifImage.FrameDimensionsList[0]);
-                    int framecount = gifImage.GetFrameCount(d);
+                    if (stream == null)
+                        continue;
 
-                    for (int i = 0; i < framecount; i++)
+                    using (System.Drawing.Image gifImage = System.Drawing.Image.FromStream(stream))
                     {
-                        gifImage.SelectActiveFrame(d, i);
+                        var d = new System.Drawing.Imaging.FrameDimension(gifImage.FrameDimensionsList[0]);
+                        gifImage.SelectActiveFrame(d, 0);
 
                         using (Bitmap frameBitmap = new Bitmap(gifImage))
                         {
-                            frames.Add(BitmapToSprite(frameBitmap, $"{petName}_{i}"));
+                            Sprite sprite = BitmapToSprite(frameBitmap, $"{petName}_0");
+                            if (sprite != null)
+                            {
+                                _firstFrameCache[petName] = sprite;
+                                Debug.Log($"[PokeBloobs] Loaded first frame only for {petName} from {folder}");
+                                return sprite;
+                            }
                         }
                     }
                 }
             }
-            return frames.ToArray();
+
+            return null;
+        }
+
+        //The animation frame getter
+        public static Sprite[] GetAnimationFrames(string petName)
+        {
+            Sprite[] frames = GetAnimationFramesFromFolder("Gen1", petName);
+            if (frames != null && frames.Length > 0)
+            {
+                Debug.Log($"[PokeBloobs] Loaded {frames.Length} Gen1 frames for {petName}");
+                return frames;
+            }
+
+            frames = GetAnimationFramesFromFolder("Gen2", petName);
+            if (frames != null && frames.Length > 0)
+            {
+                Debug.Log($"[PokeBloobs] Loaded {frames.Length} Gen2 frames for {petName}");
+                return frames;
+            }
+
+            Debug.LogWarning($"[PokeBloobs] No pet animation frames found for {petName}");
+            return null;
+        }
+
+        //The new improved animation frame getter
+        public static Sprite[] GetAnimationFramesFromFolder(string folderHint, string animationName)
+        {
+            string cacheKey = folderHint + "/" + animationName;
+
+            if (_animationCache.TryGetValue(cacheKey, out var cached))
+                return cached;
+
+            string assetPath = ZipAssetLoader.FindAssetPath(folderHint, animationName, "gif");
+
+            if (string.IsNullOrEmpty(assetPath))
+                return null;
+
+            byte[] bytes = ZipAssetLoader.LoadAssetBytes(assetPath);
+            if (bytes == null)
+                return null;
+
+            List<Sprite> frames = new List<Sprite>();
+
+            using (MemoryStream stream = new MemoryStream(bytes))
+            using (System.Drawing.Image gifImage = System.Drawing.Image.FromStream(stream))
+            {
+                var dimension = new System.Drawing.Imaging.FrameDimension(gifImage.FrameDimensionsList[0]);
+                int frameCount = gifImage.GetFrameCount(dimension);
+
+                for (int i = 0; i < frameCount; i++)
+                {
+                    gifImage.SelectActiveFrame(dimension, i);
+
+                    using (Bitmap frameBitmap = new Bitmap(gifImage))
+                    {
+                        frames.Add(BitmapToSprite(frameBitmap, $"{animationName}_{i}"));
+                    }
+                }
+            }
+
+            Sprite[] result = frames.ToArray();
+            _animationCache[cacheKey] = result;
+            return result;
         }
 
         private static Sprite BitmapToSprite(Bitmap bitmap, string name)
@@ -450,11 +347,19 @@ namespace PokeBloobs
 
                 if (ImageConversion.LoadImage(tex, buffer))
                 {
-                    Sprite s = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 50f);
+                    Sprite s = Sprite.Create(
+                        tex,
+                        new Rect(0, 0, tex.width, tex.height),
+                        new Vector2(0.5f, 0.5f),
+                        50f
+                    );
                     s.name = name;
                     return s;
                 }
+
+                UnityEngine.Object.Destroy(tex);
             }
+
             return null;
         }
 
@@ -515,30 +420,214 @@ namespace PokeBloobs
             }
         }
 
+        //Projectile Helper
+        public class RuntimePetProjectile : MonoBehaviour
+        {
+            public BasicEnemy target;
+            public float speed = 8f;
+            public float hitDistance = 0.2f;
+            public float lifeTime = 3f;
+            public float damage = 3f;
+            public float accuracy = .5f;
+
+            private float timer;
+
+            public void Initialize(BasicEnemy enemy, float moveSpeed, float damage, float accuracy)
+            {
+                target = enemy;
+                speed = moveSpeed;
+                this.damage = damage;
+                this.accuracy = accuracy;
+
+                Vector3 pos = transform.position;
+                pos.z = 0f;
+                transform.position = pos;
+            }
+
+            void Update()
+            {
+                timer += Time.deltaTime;
+                if (timer >= lifeTime)
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+
+                if (target == null || IsTargetInvalid(target))
+                {
+                    Destroy(gameObject);
+                    return;
+                }
+
+                Vector3 targetPos = target.transform.position;
+                targetPos.z = 0f;
+
+                Vector3 newPos = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+                newPos.z = 0f;
+                transform.position = newPos;
+
+                Vector3 dir = targetPos - transform.position;
+                if (dir.sqrMagnitude > 0.001f)
+                {
+                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.Euler(0f, 0f, angle);
+                }
+
+                if (Vector3.Distance(transform.position, targetPos) <= hitDistance)
+                {
+                    if (!IsTargetInvalid(target) && damage > 0f)
+                    {
+                        target.TakeDamage(damage, UnityEngine.Color.cyan);
+                    }
+
+                    Destroy(gameObject);
+                }
+            }
+
+            private bool IsTargetInvalid(BasicEnemy enemy)
+            {
+                return enemy == null || enemy.GetCurrentHealth() <= 0f || enemy.IsRespawning;
+            }
+        }
+
+        //The SpriteMan
+        public class DynamicSpriteAnimator : MonoBehaviour
+        {
+            public Sprite[] frames;
+            public float frameRate = 0.12f;
+            public bool loop = true;
+            public bool destroyOnFinish = false;
+
+            private SpriteRenderer sr;
+            private int currentFrame;
+            private float timer;
+            private bool initialized;
+
+            void Awake()
+            {
+                sr = GetComponent<SpriteRenderer>();
+            }
+
+            public void Initialize(Sprite[] newFrames, float newFrameRate = 0.12f, bool shouldLoop = true, bool shouldDestroyOnFinish = false)
+            {
+                frames = newFrames;
+                frameRate = newFrameRate;
+                loop = shouldLoop;
+                destroyOnFinish = shouldDestroyOnFinish;
+                currentFrame = 0;
+                timer = 0f;
+                initialized = true;
+
+                if (sr == null)
+                    sr = GetComponent<SpriteRenderer>();
+
+                if (sr != null && frames != null && frames.Length > 0)
+                    sr.sprite = frames[0];
+            }
+
+            void Update()
+            {
+                if (!initialized || frames == null || frames.Length <= 1 || sr == null)
+                    return;
+
+                timer += Time.deltaTime;
+                if (timer < frameRate)
+                    return;
+
+                timer = 0f;
+                currentFrame++;
+
+                if (currentFrame >= frames.Length)
+                {
+                    if (loop)
+                    {
+                        currentFrame = 0;
+                    }
+                    else
+                    {
+                        currentFrame = frames.Length - 1;
+                        sr.sprite = frames[currentFrame];
+
+                        if (destroyOnFinish)
+                            Destroy(gameObject);
+                        else
+                            enabled = false;
+
+                        return;
+                    }
+                }
+
+                sr.sprite = frames[currentFrame];
+            }
+        }
+
+        //Projectile Factory
+        public static class PetProjectileFactory
+        {
+            public static GameObject SpawnAnimatedProjectile(
+                string animationName,
+                Vector3 startPos,
+                BasicEnemy target,
+                float speed = 8f,
+                float damage = 0.25f,
+                float accuracy = 1f,
+                int sortingOrderOffset = 5)
+            {
+                if (target == null)
+                    return null;
+
+                Sprite[] frames = PokeBloobs.GetAnimationFramesFromFolder("Attacks", animationName);
+                if (frames == null || frames.Length == 0)
+                {
+                    if (animationName != "")
+                    {
+                        Debug.LogWarning($"[PokeBloobs] No projectile frames found for '{animationName}'");
+                    }
+                    return null;
+                }
+
+                startPos.z = 0f;
+
+                GameObject go = new GameObject($"PetProjectile_{animationName}");
+                go.transform.position = startPos;
+                go.transform.localScale = Vector3.one * 2f;
+
+                SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
+                sr.sprite = frames[0];
+                sr.color = UnityEngine.Color.white;
+
+                var petSr = PetManager.Instance?.activePets?
+                    .FirstOrDefault(p => p != null)?
+                    .GetComponent<SpriteRenderer>();
+
+                if (petSr != null)
+                {
+                    sr.sortingLayerID = petSr.sortingLayerID;
+                    sr.sortingOrder = petSr.sortingOrder + sortingOrderOffset;
+                }
+                else
+                {
+                    sr.sortingLayerName = "Default";
+                    sr.sortingOrder = 999;
+                }
+
+                DynamicSpriteAnimator animator = go.AddComponent<DynamicSpriteAnimator>();
+                animator.Initialize(frames, 0.08f, true, false);
+
+                RuntimePetProjectile projectile = go.AddComponent<RuntimePetProjectile>();
+                projectile.Initialize(target, speed, damage, accuracy);
+
+                //Debug.Log($"[PokeBloobs] Spawned projectile '{go.name}' at {go.transform.position} with {frames.Length} frames");
+
+                return go;
+            }
+        }
+
         //Force save things
         private void SavePokeBloobs()
         {
             var tr = Traverse.Create(PetManager.Instance);
             tr.Method("SavePets").GetValue();
-        }
-
-        //The rarity populator
-        public static void PopulateRarityArrays()
-        {
-            if (SoulsDatabase.LoadedSouls == null || SoulsDatabase.LoadedSouls.Count == 0)
-            {
-                Debug.LogError("[PokeBloobs] Cannot populate arrays: LoadedSouls is empty!");
-                return;
-            }
-
-            pCommon = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 0).Select(s => s.soulName).ToArray();
-            pUncommon = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 1).Select(s => s.soulName).ToArray();
-            pRare = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 2).Select(s => s.soulName).ToArray();
-            pUltrarare = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 3).Select(s => s.soulName).ToArray();
-            pMythic = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 4).Select(s => s.soulName).ToArray();
-            pGodTier = SoulsDatabase.LoadedSouls.Where(s => s.rarity == 5).Select(s => s.soulName).ToArray();
-
-            Debug.Log("[PokeBloobs] Rarity arrays successfully populated from JSON.");
         }
 
         //Skill soul rarity helper
@@ -598,6 +687,21 @@ namespace PokeBloobs
             return requirements;
         }
 
+        //Pet attack helper
+        public static string GetAttackAnimationForPet(string petName)
+        {
+            var mon = SoulsDatabase.LoadedSouls.FirstOrDefault(s =>
+                string.Equals(s.soulName, petName, StringComparison.OrdinalIgnoreCase));
+
+            if (mon == null)
+                return "BasicOrb";
+
+            if (!string.IsNullOrEmpty(mon.PrimaryType))
+                return mon.PrimaryType;
+
+            return "BasicOrb";
+        }
+
         //Call update single
         public static void UpdateSinglePet(string soulName)
         {
@@ -610,49 +714,79 @@ namespace PokeBloobs
 
         }
 
-        //Old Code for reference
-        //[HarmonyPatch(typeof(HitPointsSkill), "DropPets")]
-        //public class Patch_HitPointsSkill
+        //Zip loader
+        //public static class ZipAssetLoader
         //{
-        //    static void Postfix(ref List<Item> ___petDrops)
+        //    private static string ZipPath =>
+        //        Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "PokeBloobs.assets.zip");
+
+        //    public static bool ZipExists()
         //    {
-        //        if (PokeBloobs.patchSkillrun.ContainsKey(1) && PokeBloobs.patchSkillrun[1])
+        //        return File.Exists(ZipPath);
+        //    }
+
+        //    public static byte[] LoadAssetBytes(string relativePath)
+        //    {
+        //        if (!File.Exists(ZipPath))
         //        {
-        //            return;
+        //            Debug.LogWarning($"[PokeBloobs] Asset zip not found at: {ZipPath}");
+        //            return null;
         //        }
 
-        //        if (_cachedHitpointsSouls == null)
+        //        using (ZipArchive zip = ZipFile.OpenRead(ZipPath))
         //        {
-        //            _cachedHitpointsSouls = new List<Item>();
-        //            var wcSouls = PokeBloobs.SoulsDatabase.LoadedSouls
-        //                .Where(n => n.skillName.Contains("Hitpoints"));
+        //            string normalizedPath = relativePath.Replace("\\", "/");
 
-        //            foreach (var soul in wcSouls)
+        //            ZipArchiveEntry entry = zip.Entries.FirstOrDefault(e =>
+        //                string.Equals(e.FullName, normalizedPath, StringComparison.OrdinalIgnoreCase));
+
+        //            if (entry == null)
         //            {
-        //                Item c = PokeBloobs.BuildSoul(soul);
-        //                c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
-        //                _cachedHitpointsSouls.Add(c);
+        //                Debug.LogWarning($"[PokeBloobs] Asset not found in zip: {normalizedPath}");
+        //                return null;
+        //            }
+
+        //            using (Stream stream = entry.Open())
+        //            using (MemoryStream ms = new MemoryStream())
+        //            {
+        //                stream.CopyTo(ms);
+        //                return ms.ToArray();
         //            }
         //        }
+        //    }
 
-        //        var existingNames = new HashSet<string>(___petDrops.Select(d => d.name));
-
-        //        foreach (var soulItem in _cachedHitpointsSouls)
+        //    public static string FindAssetPath(string folderHint, string assetName, string extension)
+        //    {
+        //        if (!File.Exists(ZipPath))
         //        {
-        //            if (!existingNames.Contains(soulItem.name))
-        //            {
-        //                Debug.Log($"Hitpoints soul drop {soulItem.name} with rarity: {soulItem.dropChance}");
-        //                PokeBloobs.UpdateSinglePet(soulItem.name);
-        //                ___petDrops.Add(soulItem);
-        //            }
+        //            Debug.LogWarning($"[PokeBloobs] Asset zip not found at: {ZipPath}");
+        //            return null;
         //        }
 
+        //        using (ZipArchive zip = ZipFile.OpenRead(ZipPath))
+        //        {
+        //            string ext = "." + extension.TrimStart('.');
 
+        //            ZipArchiveEntry entry = zip.Entries.FirstOrDefault(e =>
+        //                e.FullName.IndexOf(folderHint, StringComparison.OrdinalIgnoreCase) >= 0 &&
+        //                Path.GetFileNameWithoutExtension(e.FullName).Equals(assetName, StringComparison.OrdinalIgnoreCase) &&
+        //                e.FullName.EndsWith(ext, StringComparison.OrdinalIgnoreCase));
 
-        //        Debug.Log($"Hitpoints soul drop patches have been applied");
-        //        PokeBloobs.patchSkillrun[1] = true;
+        //            return entry?.FullName;
+        //        }
+        //    }
+
+        //    public static string LoadJson(string name)
+        //    {
+        //        using (Stream stream = global::PokeBloobs.Classes.ZipAssetLoader.OpenAssetStream("Data", name, "json"))
+        //        {
+        //            if (stream == null)
+        //                return null;
+
+        //            using (StreamReader reader = new StreamReader(stream))
+        //                return reader.ReadToEnd();
+        //        }
         //    }
         //}
-        //END OLD CODE FOR REFERENCE
     }
 }

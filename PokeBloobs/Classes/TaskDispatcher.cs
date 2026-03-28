@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace PokeBloobs
+namespace PokeBloobs.Classes
 {
     public class TaskDispatcher : MonoBehaviour
     {
         public static TaskDispatcher Instance { get; private set; }
 
-        private static readonly ConcurrentQueue<System.Action> _queue = new ConcurrentQueue<System.Action>();
+        private static readonly ConcurrentQueue<Action> _queue = new ConcurrentQueue<Action>();
         void Awake()
         {
             if (Instance == null)
@@ -27,7 +27,7 @@ namespace PokeBloobs
             }
         }
 
-        public static void Enqueue(System.Action action) => _queue.Enqueue(action);
+        public static void Enqueue(Action action) => _queue.Enqueue(action);
 
         void Update()
         {

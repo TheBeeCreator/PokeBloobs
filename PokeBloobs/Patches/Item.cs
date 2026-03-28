@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using PokeBloobs.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace PokeBloobs.Patches
                     //Check for dupes
                     if (!__result.Any(i => i.itemName == soul.soulName))
                     {
-                        Item i = PokeBloobs.BuildSoul(soul);
+                        Item i = SoulBuilder.BuildSoul(soul);
                         __result.Add(i);
                     }
                 }

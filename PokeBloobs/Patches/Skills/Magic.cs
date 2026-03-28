@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using PokeBloobs.Classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace PokeBloobs.Patches.Skills
 
             foreach (var soul in Souls)
             {
-                Item c = PokeBloobs.BuildSoul(soul);
+                Item c = SoulBuilder.BuildSoul(soul);
                 c.dropChance = PokeBloobs.GetDropChance(soul.rarity);
                 _cachedMagicSouls.Add(c);
 
