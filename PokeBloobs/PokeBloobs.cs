@@ -1,6 +1,8 @@
 ﻿using BepInEx;
 using HarmonyLib;
 using Newtonsoft.Json;
+using PokeBloobs.Classes;
+using PokeBloobs.Patches;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,15 +11,35 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using static PokeBloobs.Classes.MenuModVersion;
 using static PokeBloobs.PokeBloobs;
 using ScriptableObject = UnityEngine.ScriptableObject;
-using PokeBloobs.Classes;
 
 namespace PokeBloobs
 {
     [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
     public class PokeBloobs : BaseUnityPlugin
     {
+        //Save keys and the bits
+        public enum ModVersionMode
+        {
+            Cosmetic,
+            Normal,
+            Chaotic
+        }
+
+        public static class ModSettings
+        {
+            public const string VersionMode = "PokeBloobs_VersionMode";
+            public const string StarterChosen = "PokeBloobs_StarterChosen";
+
+            public static bool HasChosenVersion;
+            public static bool HasChosenStarter;
+
+            public static ModVersionMode SelectedVersion = ModVersionMode.Cosmetic;
+        }
+
+        //The other stuff
         public static readonly Dictionary<ulong, string> special = new Dictionary<ulong, string>
         {
             { 76561198274546625, "Bloobs" },
@@ -25,6 +47,7 @@ namespace PokeBloobs
         };
 
         public static bool spet = false;
+        public static bool OpenedFromF9 = false;
 
         public class SoulsDatabase
         {
@@ -107,15 +130,27 @@ namespace PokeBloobs
         {
             LogStartup();
 
+            //Check for our resources
             if (!EnsureAssetZipReady())
                 return;
-            
+
+            // Load our saved info later, after the game is ready
+            ModSettings.HasChosenVersion = false;
+            ModSettings.HasChosenStarter = false;
+            ModSettings.SelectedVersion = ModVersionMode.Cosmetic;
+            MenuModVersion.VersionSelectUI.ShowPrompt = false;
+            PetManagerP.showPrompt = false;
+
+            //Creat the dispatcher
             CreateDispatcher();
             
-            LogEmbeddedResources();
+            //Log embeds
+            //LogEmbeddedResources();
             
+            //Load our souls
             SoulLoader.Load();
             
+            //Patch it
             ApplyHarmonyPatches();
             
             LogPluginLoaded();
@@ -123,7 +158,14 @@ namespace PokeBloobs
 
         private void Update()
         {
+            //if (Input.GetKeyDown(KeyCode.F9))
+            //{
+            //    if (GameObject.Find("VersionSelectUI") == null)
+            //        new GameObject("VersionSelectUI").AddComponent<VersionSelectUI>();
 
+            //    OpenedFromF9 = true;
+            //    VersionSelectUI.ShowPrompt = !VersionSelectUI.ShowPrompt;
+            //}
         }
 
         //Awake helpers
@@ -431,13 +473,15 @@ namespace PokeBloobs
             public float accuracy = .5f;
 
             private float timer;
+            public bool willHit = true;
 
             public void Initialize(BasicEnemy enemy, float moveSpeed, float damage, float accuracy)
             {
                 target = enemy;
                 speed = moveSpeed;
                 this.damage = damage;
-                this.accuracy = accuracy;
+                this.accuracy = Mathf.Clamp01(accuracy);
+                willHit = UnityEngine.Random.value < this.accuracy;
 
                 Vector3 pos = transform.position;
                 pos.z = 0f;
@@ -477,7 +521,16 @@ namespace PokeBloobs
                 {
                     if (!IsTargetInvalid(target) && damage > 0f)
                     {
-                        target.TakeDamage(damage, UnityEngine.Color.cyan);
+                        float min = Mathf.Floor(damage * 0.85f);
+                        float max = Mathf.Ceil(damage * 1.15f);
+                        float finalDamage = UnityEngine.Random.Range(min, max + 1f);
+
+                        Debug.Log($"Damage {finalDamage}");
+
+                        if (willHit)
+                        { target.TakePureDamage(finalDamage, UnityEngine.Color.cyan); } 
+                        else
+                        { target.TakeDamage(0, UnityEngine.Color.white); }
                     }
 
                     Destroy(gameObject);

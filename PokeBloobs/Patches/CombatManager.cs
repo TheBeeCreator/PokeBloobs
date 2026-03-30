@@ -1,5 +1,7 @@
 ﻿using HarmonyLib;
+using Steamworks.Ugc;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,8 +11,7 @@ namespace PokeBloobs.Patches
 {
     internal class CombatManagerP
     {
-        public static Dictionary<string, SoulsData> SoulLookup =
-            new Dictionary<string, SoulsData>(StringComparer.OrdinalIgnoreCase);
+        public static Dictionary<string, SoulsData> SoulLookup = new Dictionary<string, SoulsData>(StringComparer.OrdinalIgnoreCase);
 
         public static void BuildLookup()
         {
@@ -63,54 +64,74 @@ namespace PokeBloobs.Patches
                 if (enemy.GetCurrentHealth() <= 0f || enemy.IsRespawning)
                     return;
 
-                foreach (GameObject pet in PetManager.Instance.activePets)
+                if (ModSettings.SelectedVersion == ModVersionMode.Chaotic)
                 {
-                    if (pet == null)
-                        continue;
+                    foreach (GameObject pet in PetManager.Instance.activePets)
+                    {
+                        if (pet == null)
+                            continue;
 
-                    Vector3 startPos = pet.transform.position + new Vector3(0.4f, 0.4f, 0f);
-                    string attackAnim = GetAttackAnimationForPet(pet.name);
+                        Vector3 startPos = pet.transform.position + new Vector3(0.4f, 0.4f, 0f);
+                        string attackAnim = GetAttackAnimationForPet(pet.name);
 
-                    float highestDamage = Mathf.Max(
-                        __instance.strengthSkill?.StrengthLevel ?? 0f,
-                        __instance.rangeSkill?.RangeLevel ?? 0f,
-                        __instance.magicSkill?.MagicLevel ?? 0f
-                    );
+                        float highestDamage = Mathf.Max(
+                            __instance.strengthSkill?.StrengthLevel ?? 0f,
+                            __instance.rangeSkill?.RangeLevel ?? 0f,
+                            __instance.magicSkill?.MagicLevel ?? 0f
+                        );
 
-                    //Default 10%
-                    float petDamage = Mathf.Max(0.25f, highestDamage * 0.03f);
+                        //Default 10%
+                        float petDamage = Mathf.Max(0.25f, highestDamage * 0.03f);
 
-                    float highestAccuracy = Mathf.Max(
-                        __instance.attackSkill?.accuracy ?? 0f,
-                        __instance.rangeSkill?.accuracy ?? 0f,
-                        __instance.magicSkill?.accuracy ?? 0f
-                    );
+                        float highestAccuracy = Mathf.Max(
+                            __instance.attackSkill?.accuracy ?? 0f,
+                            __instance.rangeSkill?.accuracy ?? 0f,
+                            __instance.magicSkill?.accuracy ?? 0f
+                        );
 
-                    //pets use 35% of your best combat accuracy, with a floor of 60%
-                    float petAccuracy = Mathf.Max(0.25f, highestAccuracy * 0.03f);
+                        //pets use 35% of your best combat accuracy, with a floor of 60%
+                        float petAccuracy = Mathf.Clamp(highestAccuracy * 0.03f, 0.6f, 0.95f);
 
-                    Debug.Log($"Soul Damage {petDamage} Accuracy {petAccuracy}");
+                        //Debug.Log($"Soul Damage {petDamage} Accuracy {petAccuracy}");
 
-                    PetProjectileFactory.SpawnAnimatedProjectile(
-                        attackAnim,
-                        startPos,
-                        __instance.currentTargetEnemy,
-                        10f,
-                        petDamage,
-                        petAccuracy
-                    );
+                        float delay = UnityEngine.Random.Range(0.05f, 0.35f);
 
-                    PetProjectileFactory.SpawnAnimatedProjectile(
-                        attackAnim,
-                        startPos,
-                        __instance.currentTargetEnemy,
-                        10f,
-                        petDamage
-                    );
-
-                    //enemy.TakeDamage(petDamage, Color.cyan);
+                        __instance.StartCoroutine(DelayedPetAttack(
+                            attackAnim,
+                            startPos,
+                            __instance.currentTargetEnemy,
+                            10f,
+                            petDamage,
+                            petAccuracy,
+                            delay
+                        ));
+                    }
                 }
             }
+        }
+
+        private static IEnumerator DelayedPetAttack(
+            string attackAnim,
+            Vector3 startPos,
+            BasicEnemy enemy,
+            float speed,
+            float damage,
+            float accuracy,
+            float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            if (enemy == null || enemy.GetCurrentHealth() <= 0f)
+                yield break;
+
+            PetProjectileFactory.SpawnAnimatedProjectile(
+                attackAnim,
+                startPos,
+                enemy,
+                speed,
+                damage,
+                accuracy
+            );
         }
     }
 }

@@ -130,13 +130,13 @@ namespace PokeBloobs.Classes
 
             // Unown variants grouped
             { "Unown", new List<string[]> {
-                new[] { "Unown A" }, new[] { "Unown B" }, new[] { "Unown C" }, new[] { "Unown D" },
-                new[] { "Unown E" }, new[] { "Unown F" }, new[] { "Unown G" }, new[] { "Unown H" },
-                new[] { "Unown I" }, new[] { "Unown J" }, new[] { "Unown K" }, new[] { "Unown L" },
-                new[] { "Unown M" }, new[] { "Unown N" }, new[] { "Unown O" }, new[] { "Unown P" },
-                new[] { "Unown Q" }, new[] { "Unown R" }, new[] { "Unown S" }, new[] { "Unown T" },
-                new[] { "Unown U" }, new[] { "Unown V" }, new[] { "Unown W" }, new[] { "Unown X" },
-                new[] { "Unown Y" }, new[] { "Unown Z" }
+                new[] { "Unown-A" }, new[] { "Unown-B" }, new[] { "Unown-C" }, new[] { "Unown-D" },
+                new[] { "Unown-E" }, new[] { "Unown-F" }, new[] { "Unown-G" }, new[] { "Unown-H" },
+                new[] { "Unown-I" }, new[] { "Unown-J" }, new[] { "Unown-K" }, new[] { "Unown-L" },
+                new[] { "Unown-M" }, new[] { "Unown-N" }, new[] { "Unown-O" }, new[] { "Unown-P" },
+                new[] { "Unown-Q" }, new[] { "Unown-R" }, new[] { "Unown-S" }, new[] { "Unown-T" },
+                new[] { "Unown-U" }, new[] { "Unown-V" }, new[] { "Unown-W" }, new[] { "Unown-X" },
+                new[] { "Unown-Y" }, new[] { "Unown-Z" }
             }},
 
             // Gen 3

@@ -474,6 +474,9 @@
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>F:\SteamLibrary\steamapps\common\Bloobs Adventure Idle\Bloobs Adventure Idle_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>F:\SteamLibrary\steamapps\common\Bloobs Adventure Idle\Bloobs Adventure Idle_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   
   <ItemGroup>

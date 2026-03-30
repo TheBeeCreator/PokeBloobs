@@ -16,9 +16,40 @@ namespace PokeBloobs.Classes
 
             var item = CreateBaseSoulItem(s);
 
-            float xp = CalculateSoulXP(s.rarity);
+            //item.name = s.soulName;
 
-            ApplySkillBonus(item, s.skillName, xp, s.rarity);
+            if (ModSettings.SelectedVersion != ModVersionMode.Cosmetic)
+            {
+                float xp = CalculateSoulXP(s.rarity);
+
+                string skill = s.skillName;
+
+                if (string.IsNullOrWhiteSpace(skill))
+                {
+                    var fallback = SoulsDatabase.LoadedSouls
+                        .FirstOrDefault(x => x.soulName.Equals(s.soulName, StringComparison.OrdinalIgnoreCase));
+
+                    if (fallback != null)
+                    {
+                        skill = fallback.skillName;
+                        Debug.LogWarning($"[PokeBloobs] Recovered missing skillName for {s.soulName}: {skill}");
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"[PokeBloobs] Could not recover skillName for {s.soulName}");
+                    }
+                }
+
+                ApplySkillBonus(item, skill, xp, s.rarity);
+            }
+
+            item.information = ModSettings.SelectedVersion switch
+            {
+                ModVersionMode.Cosmetic => "A collectible companion with no gameplay bonuses.",
+                ModVersionMode.Normal => $"Grants bonuses tied to {s.skillName}.",
+                ModVersionMode.Chaotic => $"A combat-ready soul tied to {s.skillName}.",
+                _ => "A custom companion."
+            };
 
             item.commonImage = GetSprite(s.soulName)
                                ?? GetFirstAnimationFrame(s.soulName);

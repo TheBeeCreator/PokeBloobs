@@ -1504,7 +1504,207 @@
     "SecondaryType": null
   },
   {
-    "soulName": "Unown_A",
+    "soulName": "Unown-A",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-B",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-C",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-D",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-E",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-F",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-G",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-H",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-I",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-J",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-K",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-L",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-M",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-N",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-O",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-P",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-Q",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-R",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-S",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-T",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-U",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-V",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-W",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-X",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-Y",
+    "soulCategory": "event souls",
+    "skillName": "Magic",
+    "rarity": 1,
+    "PrimaryType": "Psychic",
+    "SecondaryType": null
+  },
+  {
+    "soulName": "Unown-Z",
     "soulCategory": "event souls",
     "skillName": "Magic",
     "rarity": 1,
